@@ -9,7 +9,7 @@
   --bg-light:#2c2c2c; /* fondo general más claro */
   --text:#e6eef6;
   --muted:#97a1ac;
-  --maxWidth:380px;
+  --maxWidth:550px; /* más ancho */
 }
 html,body{
   height:100%;
@@ -43,8 +43,29 @@ html,body{
 .group-photo{width:80px;height:80px;border-radius:50%;border:2px solid #0ea5bf;object-fit:cover;margin-bottom:8px;}
 .channel-name{font-size:18px;font-weight:700;margin-bottom:4px;}
 .channel-sub{color:var(--muted);font-size:13px;margin-bottom:10px;}
-.mini-thumbs{display:flex;gap:2px;justify-content:center;margin:8px 0;}
-.mini-thumbs img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid #121518;}
+
+/* Miniaturas estilo 3D más juntas */
+.mini-thumbs{
+  display:flex;
+  justify-content:center;
+  margin:8px 0;
+}
+.mini-thumbs img{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #121518;
+  margin-left:-10px; /* se superponen un poco */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* efecto 3D */
+  transform: translateZ(0); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.mini-thumbs img:hover{
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+}
+
 .channel-info{color:var(--muted);font-size:13px;margin-bottom:10px;}
 #shareBtn, #accessBtn{
   background:#0ea5bf;
