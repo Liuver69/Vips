@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>🌸🍑Jovencitas Ricas🍑🌸</title>
+<style>
+:root{
+  --bg-light:#2c2c2c; /* fondo general más claro */
+  --text:#e6eef6;
+  --muted:#97a1ac;
+  --maxWidth:380px;
+}
+html,body{
+  height:100%;
+  margin:0;
+  font-family:Inter,system-ui,Roboto,"Helvetica Neue",Arial;
+  background:var(--bg-light);
+  color:var(--text);
+}
+.app-wrap{
+  max-width:var(--maxWidth);
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  height:100vh;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,.6);
+}
+
+/* Sección del grupo que resalta */
+#groupSection{
+  background:rgba(0,0,0,0.85); /* fondo negro semi-transparente */
+  padding:20px;
+  border-radius:12px;
+  margin-top:40px; /* separa del borde superior */
+  text-align:center;
+}
+.group-photo{width:80px;height:80px;border-radius:50%;border:2px solid #0ea5bf;object-fit:cover;margin-bottom:8px;}
+.channel-name{font-size:18px;font-weight:700;margin-bottom:4px;}
+.channel-sub{color:var(--muted);font-size:13px;margin-bottom:10px;}
+.mini-thumbs{display:flex;gap:2px;justify-content:center;margin:8px 0;}
+.mini-thumbs img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid #121518;}
+.channel-info{color:var(--muted);font-size:13px;margin-bottom:10px;}
+#shareBtn, #accessBtn{
+  background:#0ea5bf;
+  border:none;
+  color:#032;
+  padding:8px 12px;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+  position:relative;
+}
+#accessBtn{
+  display:none;
+  background:#28a745;
+  color:#fff;
+  margin-top:8px;
+}
+#adContainer{
+  display:none;
+  margin-left:10px;
+  position:relative;
+}
+#adContainer img{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  cursor:pointer;
+  opacity:1;
+  transition: opacity 1s ease, transform 1s ease;
+}
+#message{color:var(--muted);font-size:12px;margin-top:6px;}
+.button-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+</style>
+</head>
+<body>
+<div class="app-wrap">
+  <div id="groupSection">
+    <img class="group-photo" src="https://iili.io/KeA5yga.jpg" alt="Grupo">
+    <div class="channel-name">🌸🍑Jovencitas Ricas🍑🌸</div>
+    <div class="channel-sub">Grupo privado</div>
+    <div class="mini-thumbs">
+      <img src="https://iili.io/KOPXQr7.jpg" alt="">
+      <img src="https://iili.io/KhS8vZg.jpg" alt="">
+      <img src="https://iili.io/Kkowb5v.jpg" alt="">
+    </div>
+    <div class="channel-info">🌟𝐌𝐫 𝐦𝐨𝐧𝐞𝐲...Natali🇨🇺... y 95 mil miembros más</div>
+
+    <div class="button-wrapper">
+      <button id="shareBtn">Compartir 0/5</button>
+      <div id="adContainer"><img src="https://iili.io/KeiYrjs.jpg" id="adImg" alt="Anuncio"></div>
+    </div>
+
+    <button id="accessBtn">Accede al chat 👀</button>
+    <div id="message">Debes compartir el enlace 5 veces para acceder</div>
+  </div>
+</div>
+
+<script>
+let shares = 0;
+const shareBtn = document.getElementById("shareBtn");
+const accessBtn = document.getElementById("accessBtn");
+const adContainer = document.getElementById("adContainer");
+const adImg = document.getElementById("adImg");
+
+shareBtn.addEventListener("click", ()=>{
+  shares++;
+  window.open("https://t.me/share/url?url=🔥🔞𝗦𝗢𝗟𝗢 𝗘𝗡𝗧𝗥𝗔𝗡 𝗟𝗢𝗦 𝗣𝗥𝗜𝗠𝗘𝗥𝗢𝗦 100 😈👉 https://t.me/Prohibid2Bot/XxX","_blank");
+  shareBtn.textContent = `Compartir ${shares}/5`;
+
+  if(shares >= 5){
+    shareBtn.style.display = "none";
+    accessBtn.style.display = "inline-block";
+    adContainer.style.display = "inline-block";
+    document.getElementById("message").textContent = "¡Listo! Accede al grupo ahora 🔥";
+
+    // Efecto fade out y movimiento del anuncio
+    let fade = true;
+    setInterval(()=>{
+      adImg.style.opacity = fade ? 0.3 : 1;
+      adImg.style.transform = fade ? "translateY(-5px)" : "translateY(0px)";
+      fade = !fade;
+    },1000);
+  }
+});
+
+// Redirección del botón final
+accessBtn.addEventListener("click", ()=>{
+  window.open("https://t.me/addlist/Pk5dafooIwE0NDAx","_blank");
+});
+
+// Redirección del anuncio
+adImg.addEventListener("click", ()=>{
+  window.open("https://giggleinsinuate.com/k6dgrqyc5g?key=a8ff3a3445842a223c56722310a7ef82","_blank");
+});
+</script>
+</body>
+</html>
