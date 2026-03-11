@@ -8,116 +8,109 @@
 <style>
 
 body{
-    font-family: Arial;
-    background:#000; /* fondo exterior negro */
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#fff;
+font-family: Arial;
+background:#000;
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#fff;
 }
 
-/* contenedor */
 .container{
-    width:260px;
-    height:390px;
-    border-radius:12px;
-    overflow:hidden;
+width:260px;
+height:390px;
+border-radius:12px;
+overflow:hidden;
 }
 
-/* HEADER GRIS OSCURO */
 .group-header{
-    background:#3f3f3f;
-    padding:15px;
-    text-align:center;
+background:#3f3f3f;
+padding:15px;
+text-align:center;
 }
 
 .group-image{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    margin:auto;
-    background-size:cover;
-    background-position:center;
-    border:2px solid #1b97df;
+width:100px;
+height:100px;
+border-radius:50%;
+margin:auto;
+background-size:cover;
+background-position:center;
+border:2px solid #1b97df;
 }
 
 .group-name{
-    font-size:18px;
-    font-weight:bold;
-    margin-top:8px;
+font-size:18px;
+font-weight:bold;
+margin-top:8px;
 }
 
 .thin-text{
-    font-size:13px;
-    color:#cfcfcf;
-    margin-top:4px;
+font-size:13px;
+color:#cfcfcf;
+margin-top:4px;
 }
 
-/* ZONA CENTRAL GRIS (botones) */
 .group-footer{
-    background:#4a4a4a;
-    padding:12px;
+background:#4a4a4a;
+padding:12px;
 }
 
-/* barra progreso */
 .progress-bar{
-    width:100%;
-    height:8px;
-    background:#2e2e2e;
-    border-radius:5px;
-    overflow:hidden;
-    margin-bottom:10px;
+width:100%;
+height:8px;
+background:#2e2e2e;
+border-radius:5px;
+overflow:hidden;
+margin-bottom:10px;
 }
 
 .progress{
-    width:0%;
-    height:100%;
-    background:#1b97df;
-    transition:width .8s ease;
+width:0%;
+height:100%;
+background:#1b97df;
+transition:width .8s ease;
 }
 
-/* BOTONES SIN SOMBRA */
 button{
-    width:100%;
-    padding:10px;
-    margin:6px 0;
-    border:none;
-    border-radius:5px;
-    font-weight:bold;
-    color:white;
-    cursor:pointer;
-
-    box-shadow:none;
-    outline:none;
-    appearance:none;
+width:100%;
+padding:10px;
+margin:6px 0;
+border:none;
+border-radius:5px;
+font-weight:bold;
+color:white;
+cursor:pointer;
+box-shadow:none;
+outline:none;
+appearance:none;
 }
 
-/* share */
 .btn-share{
-    background:#2c6fa3;
-    position:relative;
+background:#2c6fa3;
+position:relative;
 }
 
 .btn-icon{
-    width:16px;
-    vertical-align:middle;
-    margin-right:6px;
+width:16px;
+vertical-align:middle;
+margin-right:6px;
 }
 
 .counter{
-    position:absolute;
-    right:10px;
-    top:8px;
-    font-size:12px;
-    background:rgba(0,0,0,.25);
-    padding:2px 6px;
-    border-radius:10px;
+position:absolute;
+right:10px;
+top:8px;
+font-size:12px;
+background:rgba(0,0,0,.25);
+padding:2px 6px;
+border-radius:10px;
 }
 
 .btn-alert{
-    background:#2c6fa3;
+background:#2c6fa3;
 }
 
 </style>
@@ -139,7 +132,6 @@ Share 3 times to unlock and click /start to receive a gift
 
 </div>
 
-
 <div class="group-footer">
 
 <div class="progress-bar">
@@ -158,7 +150,7 @@ Share
 </button>
 
 <button class="btn-alert"
-onclick="redirect('https://downyattainprojects.com/k6dgrqyc5g?key=a8ff3a3445842a223c56722310a7ef82')">
+onclick="redirect('https://example.com')">
 
 <img class="btn-icon"
 src="https://i.ibb.co/q3JgGYYh/alert.png">
@@ -168,7 +160,7 @@ Mega Gift
 </button>
 
 <button class="btn-alert"
-onclick="redirect('https://7a6lt.fotox.app/tg?start=5353490913')">
+onclick="redirect('https://example.com')">
 
 <img class="btn-icon"
 src="https://i.ibb.co/gb6ZChYn/popup.png">
@@ -181,25 +173,84 @@ Access
 
 </div>
 
-
 <script>
 
-const groups=[
+const groups={
 
-{name:"ONLYFANS 🏆",image:"https://i.ibb.co/5X0PQH3q/4-1.jpg",shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://shorturl.at/Zjt8H"},
-{name:"DEEP WEB 🔞",image:"https://i.ibb.co/NdP0DQJT/6.jpg",shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://shorturl.at/Zjt8H"},
-{name:"SUGAR DADDY 👅🍭",image:"https://i.ibb.co/rK41hHPt/1-1.jpg",shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://shorturl.at/Zjt8H"},
-{name:"SCHOOL GIRL 🤸‍♀️💕",image:"https://i.ibb.co/4RcKP59G/3.jpg",shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://shorturl.at/Zjt8H"},
-{name:"N@ughty Girl 👯‍♀️🔞",image:"https://i.ibb.co/q30ZwJv2/7-1.jpg",shareText:"Compartir 5"},
-{name:"CAM PIRACY 🏴‍☠️🔞",image:"https://i.ibb.co/KpgTYdv0/2.jpg",shareText:"Compartir 6"},
-{name:"⛔️VALE TODO⛔️",image:"https://i.ibb.co/kg2fDXRL/IMG-20260311-124552-378.jpg",shareText:"Compartir 7"}
+onlyfans:{
+name:"ONLYFANS 🏆",
+image:"https://i.ibb.co/5X0PQH3q/4-1.jpg",
+shareText:"Compartir 1"
+},
 
-];
+deepweb:{
+name:"DEEP WEB 🔞",
+image:"https://i.ibb.co/NdP0DQJT/6.jpg",
+shareText:"Compartir 2"
+},
 
-let selectedGroup=groups[Math.floor(Math.random()*groups.length)];
+sugardaddy:{
+name:"SUGAR DADDY 👅🍭",
+image:"https://i.ibb.co/rK41hHPt/1-1.jpg",
+shareText:"Compartir 3"
+},
 
-document.getElementById("groupImage").style.backgroundImage=`url(${selectedGroup.image})`;
-document.getElementById("groupName").innerText=selectedGroup.name;
+schoolgirl:{
+name:"SCHOOL GIRL 🤸‍♀️💕",
+image:"https://i.ibb.co/4RcKP59G/3.jpg",
+shareText:"Compartir 4"
+},
+
+naughtygirl:{
+name:"N@ughty Girl 👯‍♀️🔞",
+image:"https://i.ibb.co/q30ZwJv2/7-1.jpg",
+shareText:"Compartir 5"
+},
+
+campiracy:{
+name:"CAM PIRACY 🏴‍☠️🔞",
+image:"https://i.ibb.co/KpgTYdv0/2.jpg",
+shareText:"Compartir 6"
+},
+
+valetodo:{
+name:"⛔️VALE TODO⛔️",
+image:"https://i.ibb.co/kg2fDXRL/IMG-20260311-124552-378.jpg",
+shareText:"Compartir 7"
+}
+
+};
+
+let groupKey=null;
+
+/* leer parámetro startapp */
+
+if(window.Telegram && Telegram.WebApp){
+
+groupKey=Telegram.WebApp.initDataUnsafe.start_param;
+
+}
+
+/* si no hay parámetro usar aleatorio */
+
+if(!groupKey || !groups[groupKey]){
+
+let keys=Object.keys(groups);
+groupKey=keys[Math.floor(Math.random()*keys.length)];
+
+}
+
+let selectedGroup=groups[groupKey];
+
+/* mostrar grupo */
+
+document.getElementById("groupImage").style.backgroundImage=
+`url(${selectedGroup.image})`;
+
+document.getElementById("groupName").innerText=
+selectedGroup.name;
+
+/* SHARE SYSTEM */
 
 let shareCount=0;
 let blocked=false;
