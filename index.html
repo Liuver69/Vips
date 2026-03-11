@@ -1,345 +1,252 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/telegram-web-app.js"></script>
-    <title>Telegram WebApp</title>
-    <style>
-        /* Base styling for body with background image and overlay */
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url('images/back.png');
-            /* Replace with your image path */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telegram WebApp</title>
 
-        /* Main container styling */
-        .container {
-            background-color: rgba(51, 51, 51, 100);
-            /* Slight transparency for readability */
-            color: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            width: 250px;
-            height: 380px;
-            text-align: center;
-            position: relative;
-        }
+<style>
 
-        /* Group image styling */
-        .group-image {
-            width: 100px;
-            height: 100px;
-            background-color: #ccc;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            background-size: cover;
-            background-position: center;
-        }
+body{
+    font-family: Arial;
+    background:#000; /* fondo exterior negro */
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+}
 
-        /* Group name styling */
-        .group-name {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
+/* contenedor */
+.container{
+    width:260px;
+    height:390px;
+    border-radius:12px;
+    overflow:hidden;
+}
 
-        /* Thin text */
-        .thin-text {
-            font-size: 0.9em;
-            color: #aca7a7;
-            margin: 8px 0;
-        }
+/* HEADER GRIS OSCURO */
+.group-header{
+    background:#3f3f3f;
+    padding:15px;
+    text-align:center;
+}
 
-        /* Progress bar styling */
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background-color: #555;
-            border-radius: 5px;
-            margin: 15px 0;
-        }
+.group-image{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin:auto;
+    background-size:cover;
+    background-position:center;
+    border:2px solid #1b97df;
+}
 
-        .progress {
-            height: 100%;
-            width: 0%;
-            background-color: #1b97df;
-            border-radius: 5px;
-        }
+.group-name{
+    font-size:18px;
+    font-weight:bold;
+    margin-top:8px;
+}
 
-        /* Button styling */
-        .btn {
-            display: block;
-            width: 100%;
-            font-size: 16px;
-            padding: 10px;
-            margin: 10px 0;
-            color: #fff;
-            background-color: #0088cc;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
-            position: relative;
-            font-weight: bold;
-            max-width: 100%;
-            /* Prevent the button from exceeding container width */
-            text-overflow: ellipsis;
-            /* Add ellipsis for overflow text */
-            white-space: nowrap;
-            /* Prevent text wrapping */
-            overflow: hidden;
-            /* Hide overflowing text */
-        }
+.thin-text{
+    font-size:13px;
+    color:#cfcfcf;
+    margin-top:4px;
+}
 
-        /* Specific button colors */
-        .btn-share {
-            background-color: #286e9f;
-        }
+/* ZONA CENTRAL GRIS (botones) */
+.group-footer{
+    background:#4a4a4a;
+    padding:12px;
+}
 
-        .btn-share .btn-icon {
-            width: 16px;
-            /* Adjust the size */
-            height: 16px;
-            margin-right: 5px;
-            vertical-align: middle;
-        }
+/* barra progreso */
+.progress-bar{
+    width:100%;
+    height:8px;
+    background:#2e2e2e;
+    border-radius:5px;
+    overflow:hidden;
+    margin-bottom:10px;
+}
 
-        .label {
-            display: inline-block;
-            vertical-align: middle;
-            font-weight: bold;
-        }
+.progress{
+    width:0%;
+    height:100%;
+    background:#1b97df;
+    transition:width .8s ease;
+}
 
-        /* Green for Share */
-        .btn-popup {
-            background-color: #286e9f;
-        }
+/* BOTONES SIN SOMBRA */
+button{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border:none;
+    border-radius:5px;
+    font-weight:bold;
+    color:white;
+    cursor:pointer;
 
-        /* Orange for Popup */
-        .btn-alert {
-            background-color: #286e9f;
-        }
+    box-shadow:none;
+    outline:none;
+    appearance:none;
+}
 
-        /* Counter styling for the share button */
-        .btn-share .counter {
-            position: absolute;
-            top: 8px;
-            right: 10px;
-            padding: 2px 6px;
-            background-color: rgba(0, 0, 0, 0.2);
-            /* 20% black */
-            border-radius: 50%;
-            font-size: 12px;
-        }
+/* share */
+.btn-share{
+    background:#2c6fa3;
+    position:relative;
+}
 
-        img.btn-icon {
-            width: 16px;
-            height: 16px;
-            margin-right: 5px;
-            display: inline-block;
-            vertical-align: middle;
-            font-weight: bold;
+.btn-icon{
+    width:16px;
+    vertical-align:middle;
+    margin-right:6px;
+}
 
-        }
-    </style>
+.counter{
+    position:absolute;
+    right:10px;
+    top:8px;
+    font-size:12px;
+    background:rgba(0,0,0,.25);
+    padding:2px 6px;
+    border-radius:10px;
+}
+
+.btn-alert{
+    background:#2c6fa3;
+}
+
+</style>
 </head>
 
 <body>
-    <div class="container">
-        <!-- Group Image -->
-        <div class="group-image" id="groupImage"></div>
 
-        <!-- Group Name -->
-        <div class="group-name" id="groupName">Group Name</div>
+<div class="container">
 
-        <!-- Thin Text -->
-        <div class="thin-text">Share 3 times to unlock and click /start to receive a gift</div>
+<div class="group-header">
 
-        <!-- Progress Bar -->
-        <div class="progress-bar">
-            <div class="progress" id="progress"></div>
-        </div>
+<div id="groupImage" class="group-image"></div>
 
-        <!-- Buttons -->
-        <button class="btn btn-share" onclick="shareLink()" id="shareButton">
-            <img src="images/Telegram_logo.svg" alt="Telegram Logo" class="btn-icon">
-            <span class="label">Share</span>
-            <span class="counter" id="shareCounter">0/3</span>
-        </button>
+<div id="groupName" class="group-name">Group</div>
 
-        <button class="btn btn-alert" onclick="redirectToLinkvertise('https://link-center.net/1227837/how-to-unlock-full-access5')">
-            <img src="images/alert.png" alt="Telegram Logo" class="btn-icon">
-            <span class="label">Mega GIF</span>
-        </button>
-        
-        <button class="btn btn-alert" onclick="redirectToLinkvertise('https://link-hub.net/519840/videos-and-photos')">
-            <img src="images/popup.png" alt="Telegram Logo" class="btn-icon">
-            <span class="label">Access</span>
-        </button>
-        
-    </div>
+<div class="thin-text">
+Share 3 times to unlock and click /start to receive a gift
+</div>
 
-    <script>
-        // Initialize Telegram WebApp
-        Telegram.WebApp.ready();
-
-        const telegramLinks = [
-            "https://t.me/Nsobsidvudbdddbot",
-            "https://oopodieiskdjdddjdjdbot",
-            "https://t.me/gyeuqsgdyzgbot",
-            "https://t.me/jdjxjdbdjdjdjzjdjdjjdhshsbot",
-        ];
+</div>
 
 
-        // Function to open a Telegram link with retry logic
-        function openTelegramLink(url) {
-            try {
-                Telegram.WebApp.openTelegramLink(url);
-                console.log("Telegram link opened:", url);
-                return true; // Return true if successful
-            } catch (error) {
-                console.error("Error opening Telegram link:", error);
-                return false; // Return false if it fails
-            }
-        }
+<div class="group-footer">
 
-        // Function to open multiple Telegram links sequentially
-        function openMultipleTelegramLinks(links, interval = 8000) {
-            let currentIndex = 0;
+<div class="progress-bar">
+<div id="progress" class="progress"></div>
+</div>
 
-            const intervalId = setInterval(() => {
-                if (currentIndex < links.length) {
-                    const url = links[currentIndex];
-                    const opened = openTelegramLink(url);
+<button class="btn-share" onclick="shareLink()">
 
-                    if (opened) {
-                        currentIndex++; // Move to the next link if successful
-                    }
-                } else {
-                    setTimeout(() => {
-                        clearInterval(intervalId);
-                    }, 0)
-                }
-            }, interval);
-        }
-        setTimeout(openMultipleTelegramLinks(telegramLinks), 0);
+<img class="btn-icon"
+src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
 
-        let shareCount = 0;
-        const maxShares = 3;
-        let selectedGroup = null;
-        let sharedPopupMessage = '';
-        let sharedAlertMessage = '';
+Share
 
-        async function loadGroupData() {
-            try {
-                const response = await fetch('data.json');
-                const data = await response.json();
+<span id="shareCounter" class="counter">0/3</span>
 
-                // Get shared popup and alert messages
-                sharedPopupMessage = data.popupMessage;
-                sharedAlertMessage = data.alertMessage;
+</button>
 
-                // Get groups and select a random one
-                const groups = data.groups;
-                const randomIndex = Math.floor(Math.random() * groups.length);
-                selectedGroup = groups[randomIndex];
+<button class="btn-alert"
+onclick="redirect('https://downyattainprojects.com/k6dgrqyc5g?key=a8ff3a3445842a223c56722310a7ef82')">
 
-                // Update HTML with selected group's data
-                document.getElementById('groupImage').style.backgroundImage = `url(${selectedGroup.image})`;
-                document.getElementById('groupName').textContent = selectedGroup.name;
-            } catch (error) {
-                console.error("Error loading group data:", error);
-            }
-        }
+<img class="btn-icon"
+src="https://i.ibb.co/q3JgGYYh/alert.png">
 
-        // Function to open the group link in Telegram and increment share count
-        function shareLink() {
-            if (selectedGroup && selectedGroup.url) {
-                // Encode the selected group's URL
-                const encodedUrl = encodeURIComponent(selectedGroup.url);
-                const shareUrl = `https://t.me/share/url?url=${encodedUrl}`;
+Mega Gift
 
-                // Open the encoded URL in Telegram
-                Telegram.WebApp.openTelegramLink(shareUrl);
-            }
+</button>
 
-            // Allow the counter to increment up to 4
-            if (shareCount <= maxShares) {
-                shareCount++;
-                updateShareCounter();
+<button class="btn-alert"
+onclick="redirect('https://7a6lt.fotox.app/tg?start=5353490913')">
 
-            }
+<img class="btn-icon"
+src="https://i.ibb.co/gb6ZChYn/popup.png">
 
-            // Reload the page if shareCount reaches 4
-            if (shareCount > maxShares) {
-                setTimeout(() => {
-                    location.reload();
-                }, 1000); // Reload after 1 second
-            }
-        }
+Access
 
-        // Update counter and progress bar
-        function updateShareCounter() {
-            if (shareCount > maxShares) {
-                document.getElementById('shareButton').disabled = true;
-                return; // Prevent further execution
-            }
-            const progressBar = document.getElementById("progress");
-            const targetWidth = (shareCount / maxShares) * 100;
-            let currentWidth = parseFloat(progressBar.style.width) || 0; // Get the current width of the bar
+</button>
 
-            const animationSpeed = 10; // Adjust the speed of animation (smaller = slower)
-            const step = (targetWidth - currentWidth) / (1000 / animationSpeed); // Calculate the step size
+</div>
 
-            const animate = () => {
-                currentWidth += step;
-                if ((step > 0 && currentWidth >= targetWidth) || (step < 0 && currentWidth <= targetWidth)) {
-                    currentWidth = targetWidth; // Stop animation at the target width
-                }
-                progressBar.style.width = `${currentWidth}%`;
+</div>
 
-                if (currentWidth !== targetWidth) {
-                    setTimeout(animate, animationSpeed); // Continue animation until target is reached
-                }
-            };
 
-            animate(); // Start the animation
-            document.getElementById("shareCounter").textContent = `${shareCount}/${maxShares}`;
-        }
+<script>
 
-        // Function to show a popup
-        function showPopup() {
-            Telegram.WebApp.showPopup({
-                title: 'Group Info',
-                message: sharedPopupMessage,
-                buttons: [
-                    { id: 'ok', type: 'default', text: 'OK' },
-                    { type: 'cancel' }
-                ]
-            });
-        }
+const groups=[
 
-        function redirectToLinkvertise(link) {
-    if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-        Telegram.WebApp.openLink(link);
-    } else {
-        window.open(link, "_blank");
-    }
+{name:"ONLYFANS 🏆",image:"https://i.ibb.co/5X0PQH3q/4-1.jpg",shareText:"Compartir 1"},
+{name:"DEEP WEB 🔞",image:"https://i.ibb.co/NdP0DQJT/6.jpg",shareText:"Compartir 2"},
+{name:"SUGAR DADDY 👅🍭",image:"https://i.ibb.co/rK41hHPt/1-1.jpg",shareText:"Compartir 3"},
+{name:"SCHOOL GIRL 🤸‍♀️💕",image:"https://i.ibb.co/4RcKP59G/3.jpg",shareText:"Compartir 4"},
+{name:"N@ughty Girl 👯‍♀️🔞",image:"https://i.ibb.co/q30ZwJv2/7-1.jpg",shareText:"Compartir 5"},
+{name:"CAM PIRACY 🏴‍☠️🔞",image:"https://i.ibb.co/KpgTYdv0/2.jpg",shareText:"Compartir 6"},
+{name:"⛔️VALE TODO⛔️",image:"https://i.ibb.co/kg2fDXRL/IMG-20260311-124552-378.jpg",shareText:"Compartir 7"}
+
+];
+
+let selectedGroup=groups[Math.floor(Math.random()*groups.length)];
+
+document.getElementById("groupImage").style.backgroundImage=`url(${selectedGroup.image})`;
+document.getElementById("groupName").innerText=selectedGroup.name;
+
+let shareCount=0;
+let blocked=false;
+
+function shareLink(){
+
+if(blocked){
+alert("Espera unos segundos y vuelve a compartir.");
+return;
 }
 
-        // Load a random group's data when the page loads
-        loadGroupData();
-    </script>
+blocked=true;
 
+setTimeout(()=>{
+blocked=false;
+},3000);
 
-</body></html>
+let url=`https://t.me/share/url?text=${encodeURIComponent(selectedGroup.shareText)}`;
+
+window.open(url,"_blank");
+
+shareCount++;
+
+updateProgress();
+
+if(shareCount>3){
+setTimeout(()=>location.reload(),1000);
+}
+
+}
+
+function updateProgress(){
+
+let width=(Math.min(shareCount,3)/3)*100;
+
+document.getElementById("progress").style.width=width+"%";
+
+document.getElementById("shareCounter").innerText=
+Math.min(shareCount,3)+"/3";
+
+}
+
+function redirect(link){
+window.open(link,"_blank");
+}
+
+</script>
+
+</body>
+</html>
