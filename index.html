@@ -1,324 +1,452 @@
-<!DOCTYPE html>
-<html lang="es">
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>🌸🍑Jovencitas Ricas🍑🌸</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+<title>💕 Chats Prohibi2 💋🔥</title>
+<meta content='#008069' name='theme-color'/>
+<meta content='images/logo.jpg' name='og:image'/>
+<meta content='Que esperas para unirte al mejor chat Hot 🥵' property='og:description'/>
+<meta content='IE=EmulateIE7' http-equiv='X-UA-Compatible'/>
+<meta content='noindex' name='robots'/>
+<link href='https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css' rel='stylesheet'/>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<meta content='blogger' name='generator'/>
+<link href=' ' rel='icon' type='image/x-icon'/>
+<link rel="stylesheet" href="resources/style.css">
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
 
-:root{
-  --bg-light:#2c2c2c;
-  --text:#e6eef6;
-  --muted:#97a1ac;
-  --btn-cian:#00e0c0;
-  --btn-verde:#28a745;
-  --btn-verde-borde:#0ea5bf;
-  --maxWidth:550px;
-}
+<meta content='💕Chats Prohibi2 💋🔥' property='og:title'/>
+<meta content='' property='og:description'/>
 
-/* --- BODY --- */
+<meta content='WhatsApp .com' property='og:url'/>
+<meta content='WhatsApp .com' property='og:site_name'/>
+<style id='page-skin-1' type='text/css'><!--
+/*
 body {
-  margin:0;
-  font-family:'Roboto',sans-serif;
-  background:var(--bg-light);
-  color:var(--text);
-  height:100%;
-  overflow:hidden;
+font: $(body.font);
+color: $(body.text.color);
+background: $(body.background);
+padding: 0 $(content.shadow.spread) $(content.shadow.spread) $(content.shadow.spread);
+$(body.background.override) margin: 0;
+padding: 0;
 }
-
-/* --- PORTADA +18 --- */
-#portada {
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:url('https://iili.io/K6Yro91.jpg') no-repeat center center/cover;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-  transition:opacity 0.5s ease;
-}
-.overlay {
-  background:rgba(0,0,0,0.55);
-  padding:40px 30px;
-  border-radius:20px;
-  box-shadow:0 0 25px rgba(0,255,255,0.4);
-  text-align:center;
-  backdrop-filter:blur(3px);
-}
-.overlay h1 {
-  font-size:22px;
-  color:#fff;
-  letter-spacing:0.3px;
-  line-height:1.5;
-  font-weight:500;
-  text-shadow:0 0 6px rgba(255,255,255,0.25);
-}
-.overlay h1 span {
-  display:block;
-  color:var(--btn-cian);
-  font-size:26px;
-  font-weight:600;
-  text-shadow:0 0 8px rgba(0,255,255,0.3);
-  margin-top:6px;
-}
-.btns {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
-  margin-top:25px;
-}
-button {
-  font-family:'Roboto',sans-serif;
-  border:none;
-  border-radius:25px;
-  padding:12px 30px;
-  font-size:15px;
-  cursor:pointer;
-  transition:0.3s;
-  letter-spacing:0.5px;
-  width:200px;
-}
-.btn-trans {
-  background:transparent;
-  border:1px solid var(--btn-cian);
-  color:var(--btn-cian);
-  box-shadow:0 0 6px rgba(255,255,255,0.7);
-}
-.btn-trans:hover{background:rgba(0,224,192,0.1);}
-.btn-cyan {
-  background:var(--btn-cian);
-  color:#000;
-  box-shadow:0 0 8px rgba(0,255,255,0.6);
-}
-.btn-cyan:hover{background:#00c5a8;}
-
-/* --- CHAT --- */
-#chat {
-  display:none;
-  max-width:var(--maxWidth);
-  margin:0 auto;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  align-items:center;
-  position:relative;
-}
-
-#groupSection{
-  background:rgba(0,0,0,0.85);
-  padding:20px;
-  border-radius:12px 12px 0 0;
-  text-align:center;
-  width:100%;
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:10;
-  box-shadow:0 -4px 20px rgba(0,0,0,0.7);
-}
-.group-photo{width:80px;height:80px;border-radius:50%;border:2px solid var(--btn-verde-borde);object-fit:cover;margin-bottom:8px;}
-.channel-name{font-size:18px;font-weight:700;margin-bottom:4px;}
-.channel-sub{color:var(--muted);font-size:13px;margin-bottom:10px;}
-
-.mini-thumbs{
-  display:flex;
-  justify-content:center;
-  margin:8px 0;
-}
-.mini-thumbs img{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid #121518;
-  margin-left:-10px;
-  box-shadow:0 4px 8px rgba(0,0,0,0.5);
-  transform:translateZ(0);
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
-}
-.mini-thumbs img:hover{
-  transform:scale(1.1);
-  box-shadow:0 8px 16px rgba(0,0,0,0.6);
-}
-
-.channel-info{color:var(--muted);font-size:13px;margin-bottom:10px;}
-#shareBtn,#accessBtn{
-  background:var(--btn-cian);
-  border:none;
-  color:#fff;
-  padding:10px 20px;
-  border-radius:25px;
-  font-weight:700;
-  cursor:pointer;
-  position:relative;
-  transition:transform 0.2s ease,background 0.3s ease;
-  box-shadow:0 0 12px rgba(61,208,185,0.5);
-}
-#accessBtn{
-  display:none;
-  background:var(--btn-verde);
-  color:#fff;
-  margin-top:8px;
-  box-shadow:0 0 12px rgba(110,255,155,0.5);
-}
-#message{color:var(--muted);font-size:12px;margin-top:6px;transition:all 0.3s ease;}
-#smallText{color:#ff6666;font-size:11px;margin-top:4px;display:none;}
-.button-wrapper{display:flex;align-items:center;justify-content:center;gap:10px;}
-.vibrate{animation:vibrate 0.3s linear;}
-@keyframes vibrate{
-  0%{transform:translateX(0);}
-  25%{transform:translateX(-3px);}
-  50%{transform:translateX(3px);}
-  75%{transform:translateX(-3px);}
-  100%{transform:translateX(0);}
-}
-
-/* --- ANUNCIO FLOTANTE --- */
-#floatingAd{
-  position:absolute;
-  width:50px;
-  height:50px;
-  bottom:20px;
-  right:20px;
-  cursor:pointer;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:2;
-  border:4px solid var(--btn-verde-borde);
-  box-shadow:0 0 20px rgba(110,255,155,0.6);
-  opacity:0;
-  transition:opacity 1s ease;
-}
-#floatingAd img{width:50px;height:50px;border-radius:50%;}
-#statusCircle{
-  position:absolute;
-  width:14px;height:14px;
-  background:var(--btn-verde);
-  border:3px solid #fff;
-  border-radius:50%;
-  bottom:0;right:0;
-}
-#messageCount{
-  position:absolute;
-  top:0;left:0;
-  width:20px;height:20px;
-  background:#ff1a1a;
-  color:#fff;
-  font-size:14px;
-  font-weight:bold;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:3;
-}
-</style>
+--></style>
 </head>
+
 <body>
+<div class='main section' id='main'><div class='widget HTML' data-version='1' id='HTML1'>
+<div class='widget-content'>
 
-<!-- PORTADA +18 -->
-<div id="portada">
-  <div class="overlay">
-    <h1>Por favor confirme que tiene más de<br><span>18 años</span></h1>
-    <div class="btns">
-      <button class="btn-trans" onclick="window.close()">Salir</button>
-      <button class="btn-cyan" id="btn-si">Tengo 18</button>
-    </div>
-  </div>
-  <div id="floatingAd">
-    <img src="https://iili.io/KSA1uDB.jpg" alt="Anuncio">
-    <div id="statusCircle"></div>
-    <div id="messageCount">2</div>
-  </div>
-</div>
+<header>
+            <div class="left">
+                <i class="fa-regular fa-arrow-left"></i>
+                <img src="images/logo.jpg" />
+                <div class="text">
+                    <h1>💕Chats Prohibi2 💋🔥</h1>
+                    <p>+1 (256) 296-6842, +1 (343) 303-4836, +1 (682) 200-9962</p>
+                </div>
+            </div>
+            <div class="right">
+                <i class="fa-solid fa-phone-plus"></i>
+                <i class="fa-regular fa-ellipsis-vertical"></i>
+            </div>
+        </header>
+        <main>
+            <div class="date">
+                <p><span id="day"></span> <span id="month"></span> <span id="year"></span></p>
+            </div>
+            <div class="privacy">
+                <p><i class="fa-solid fa-lock"></i> Los mensajes y llamadas de WhatsApp están cifrados de extremo a extremo. Nadie fuera de este chat, ni siquiera WhatsApp, puede leerlos o escucharlos. Toca para obtener más información.</p>
+            </div>
+            <div class="date activity" style="display: none;">
+                <p>+1 (452) 884-6693 se unió usando el enlace de invitación de este grupo</p>
+            </div>
+            <div class="users" id="user1" style="display: none;">
+                <div class="user">
+                    <div class="number">+1 (682) 200-9962</div>
+                    <div class="message">
+                        <div class="audio">
+                            <i class="fa-solid fa-play"></i>
+                            <div>
+                                <div class="content">
+                                    <alxbndl></alxbndl>
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                </div>
+                                <div class="details">
+                                    <span>2.37</span>
+                                    <span>01:43</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pic">
+                            <img src="images/foto1.jpg" />
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="user" id="user2" style="display: none;">
+                    <div class="number" style="margin-bottom: 5px; color: #9c27b0;">+1 (343) 303-4836</div>
+                    <div class="message">
+                        <div class="video">
+                            <img src="images/foto2.jpg" />
+                            <div class="videodetails">
+                                <div class="download">
+                                    <i class="fa-solid fa-down"></i>
+                                    <span>50,25 MB</span>
+                                </div>
+                                <p>1:45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+ <div class="users" id="user3" style="display: none;">
+                <div class="user">
+                    <div class="number">+1 (250) 582-4265</div>
+                    <div class="message">
+                        <div class="audio">
+                            <i class="fa-solid fa-play"></i>
+                            <div>
+                                <div class="content">
+                                    <alxbndl></alxbndl>
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                </div>
+                                <div class="details">
+                                    <span>1.45</span>
+                                    <span>1:58</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pic">
+                            <img src="images/foto6.jpg" />
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
+                  <div class="user" id="user4" style="display: none;">
+                    <div class="number" style="margin-bottom: 5px; color: #9c27b0;">+1 (343) 303-4836</div>
+                    <div class="message">
+                        <div class="video">
+                            <img src="images/foto4.jpg" />
+                            <div class="videodetails">
+                                <div class="download">
+                                    <i class="fa-solid fa-down"></i> 
+                                    <span>18.52 MB</span>
+                                </div>
+                                <p>02:05</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<!-- CHAT -->
-<div id="chat" class="app-wrap">
-  <div id="groupSection">
-    <img class="group-photo" src="https://iili.io/KeA5yga.jpg" alt="Grupo">
-    <div class="channel-name">🌸🍑Jovencitas Ricas🍑🌸</div>
-    <div class="channel-sub">Grupo privado</div>
-    <div class="mini-thumbs">
-      <img src="https://iili.io/KOPXQr7.jpg" alt="">
-      <img src="https://iili.io/KhS8vZg.jpg" alt="">
-      <img src="https://iili.io/KPC1qEN.jpg" alt="">
-    </div>
-    <div class="channel-info">🌟𝐌𝐫 𝐦𝐨𝐧𝐞𝐲...Alexa💚✨... y 97 mil miembros más</div>
 
-    <div class="button-wrapper">
-      <button id="shareBtn">Compartir 0/5</button>
-    </div>
+                <div class="user" id="user5" style="display: none;">
+                    <div class="number" style="margin-bottom: 5px; color: #ff9800;">+1 (256) 296-6842</div>
+                    <div class="forward"><i class="fa-solid fa-share"></i> <i>Reenviado</i></div>
+                    <div class="message">
+                        <div class="video">
+                            <img src="images/foto5.jpg" />
+                            <div class="videodetails">
+                                <div class="download">
+                                    <i class="fa-solid fa-down"></i>
+                                    <span>10,75 MB</span>
+                                </div>
+                                <p>02:11</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <button id="accessBtn">Accede al chat 👀</button>
-    <div id="message">Debes compartir el enlace 5 veces para acceder</div>
-    <div id="smallText"></div>
-  </div>
-</div>
+            <div class="users" id="user6" style="display: none;">
+                <div class="user">
+                    <div class="number">+1 (682) 200-9962</div>
+                    <div class="message">
+                        <div class="audio">
+                            <i class="fa-solid fa-play"></i>
+                            <div>
+                                <div class="content">
+                                    <alxbndl></alxbndl>
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                </div>
+                                <div class="details">
+                                    <span>0.51</span>
+                                    <span>02:15</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pic">
+                            <img src="images/foto7.jpg" />
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
 
-<script>
-const btnSi=document.getElementById("btn-si");
-const portada=document.getElementById("portada");
-const chat=document.getElementById("chat");
-const shareBtn=document.getElementById("shareBtn");
-const accessBtn=document.getElementById("accessBtn");
-const message=document.getElementById("message");
-const smallText=document.getElementById("smallText");
-const floatingAd=document.getElementById("floatingAd");
-let shares=0;
+                <div class="users" id="user7" style="display: none;">
+                <div class="user">
+                    <div class="number">+52 33 1698 8524</div>
+                    <div class="message">
+                        <div class="audio">
+                            <i class="fa-solid fa-play"></i>
+                            <div>
+                                <div class="content">
+                                    <alxbndl></alxbndl>
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                </div>
+                                <div class="details">
+                                    <span>0.07</span>
+                                    <span>23:30</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pic">
+                            <img src="images/foto8.jpg" />
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
 
-// Entrar al chat
-btnSi.addEventListener("click",()=>{
-  portada.style.opacity=0;
-  setTimeout(()=>{
-    portada.style.display="none";
-    chat.style.display="flex";
-  },500);
-});
+                
+             <div class="users" id="user9" style="display: none;">
+                <div class="user">
+                    <div class="number">+52 33 2562 7462</div>
+                    <div class="message">
+                        <div class="audio">
+                            <i class="fa-solid fa-play"></i>
+                            <div>
+                                <div class="content">
+                                    <alxbndl></alxbndl>
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                    <img src="images/audio.png" />
+                                </div>
+                                <div class="details">
+                                    <span>0.17</span>
+                                    <span>23:30</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pic">
+                            <img src="https://imageshack.com/i/poZ6KEAwj" />
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
 
-// Compartir
-shareBtn.addEventListener("click",()=>{
-  shares++;
-  if(shares<=4){
-    window.open("https://t.me/share/url?url=🔥🔞𝗦𝗢𝗟𝗢 𝗘𝗡𝗧𝗥𝗔𝗡 𝗟𝗢𝗦 𝗣𝗥𝗜𝗠𝗘𝗥𝗢𝗦 100 😈👉 https://t.me/Prohibid2Bot/XxX","_blank");
-    shareBtn.textContent=`Compartir ${shares}/5`;
-  }
-  if(shares===4){
-    shareBtn.textContent="🔔 Suscribirme 🔔";
-    message.textContent="Estás a un paso de acceder.Solo te falta agregar nuestra carpeta de chats.";
-    shareBtn.onclick=()=>{
-      window.open("https://7a6lt.fotox.app/tg?start=5353490913","_blank");
-      shareBtn.disabled=true;
-      message.textContent="Cargando...";
-      setTimeout(()=>{
-        shareBtn.style.display="none";
-        accessBtn.style.display="inline-block";
-      },3000);
+
+        </main>
+        <div class="modal" style="display: none;">
+            <div class="info">
+                <div id="intro">
+                    <img class="profile" src="images/logo2.jpg" />
+                    <h1 class="title">💕Chats Prohibi2 💋🔥</h1>
+                    <p class="created"> Creado en <span id="created"></span></p>
+                    <div class="reactions">
+                        <img class="like" src="images/foto14.jpg" />
+ 
+                      <img class="love" src="images/foto13.jpg" />
+
+                      
+                      
+                           <img class="care" src="images/foto14.jpg" />
+                  
+                    
+                     
+            
+                     <img class="care1" src="images/foto11.jpg" />
+                        <span class="total">+450</span>
+                    </div>
+                    <button id="join">Unirme al grupo</button>
+                  
+               
+                              
+                  
+                </div>
+                <div id="share">
+                    <div class="last">
+                       Para unirte debes compartir en 2 grupos de 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺  
+                    </div>
+                    <div class="bar">
+                        <div class="fill">
+                            <div id="fill"></div>
+                        </div>
+                        <div class="percentage flex">
+                            <div class="loader"></div>
+                            <span id="percentage">0%</span>
+                        </div>
+                    </div>
+                    <button id="invite">compartir</button>
+                </div>
+                <div id="offer">
+                  
+   <br><button class="kiss-button" onclick="window.location.href='https://t.me/+-T9Kz96FpvM3ZTI1'"> Únete </button>
+<br><br><p>"vuelve a compartir para ver otro grupo 'o' únete"</p>
+<style>
+    .kiss-button {
+        background-color: red;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 50px; /* Esquinas redondeadas */
+        cursor: pointer;
+        position: relative;
+        animation: kiss-animation 1.5s infinite;
+        outline: none;
+        text-decoration: none;
     }
-  }
-});
 
-// Acceder al chat
-accessBtn.addEventListener("click",()=>{
-  accessBtn.classList.add("vibrate");
-  setTimeout(()=>accessBtn.classList.remove("vibrate"),400);
-  smallText.style.display="block";
-  smallText.textContent="Recarga la página, comparte el enlace e intenta de nuevo.";
-});
+    @keyframes kiss-animation {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        }
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+    }
 
-// Anuncio flotante
-function fadeAd(){
-  floatingAd.style.opacity="1";
-  setTimeout(()=>{floatingAd.style.opacity="0";},4000);
-}
-fadeAd();
-setInterval(fadeAd,8000);
+    .kiss-button:before {
+        content: '💕';
+        position: absolute;
+        top: -5px;
+        left: -10px;
+        font-size: 20px;
+        animation: heart-float 1.5s infinite;
+    }
+
+    @keyframes heart-float {
+        0%, 100% {
+            opacity: 0;
+            transform: translateY(0) scale(1);
+        }
+        50% {
+            opacity: 1;
+            transform: translateY(-20px) scale(1.2);
+        }
+    }
+</style>                
+                  
+                  
+                    <button id="get"> Unirme al grupo </button>                                     
+                </div>
+
+            </div>
+
+        </div>
+        <script>
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+            const date = new Date();
+            let day = date.getUTCDate();
+            let month = months[date.getMonth()];
+            let currentMonth = date.getMonth() + 1;
+            let year = date.getFullYear();
+            let shortyear = year.toString().slice(-2);
+            document.getElementById("day").innerHTML = day;
+            document.getElementById("month").innerHTML = month;
+            document.getElementById("year").innerHTML = year;
+            document.getElementById("created").innerHTML = currentMonth + "/" + day + "/" + shortyear;
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            var width = 0,
+                url = "💕 Únete a los mejores Chats Prohibi2 😈👉 https://latinhot.chat",
+ 
+                share = "https://t.me/share/url?url=" + url,
+                cpa = "https://href.li/?http://acort.link/Y6fyh8Ev";
+        </script>
+        <script type="text/javascript">
+$(document).ready(function () {
+        setTimeout(() => {
+        $(".activity").show();
+        setTimeout(() => {
+
+$("#user1").show();
+setTimeout(() => {
+
+$("#user2").show();
+setTimeout(() => {
+
+$("#user3").show();
+setTimeout(() => {
+
+$("#user4").show();
+setTimeout(() => {
+
+$("#user5").show();
+setTimeout(() => {
+
+$("#user6").show();
+setTimeout(() => {
+
+$("#user7").show();
+setTimeout(() => {
+
+
+$(".modal").show();
+
+
+  }, 1000);
+  }, 1000);
+  }, 900);
+  }, 700);
+  }, 500);
+  }, 400);
+  }, 350);
+  }, 200);
+  }, 100);
+
+});
+$("#join").click(function () {
+    $("#intro").hide();
+    $("#share").show();
+});
+$("#invite").click(function () {
+    window.location.href = share;
+    if (width == 0) {
+        width += 40;
+    } else if (width == 60) {
+        width += 25;
+    } else if (width == 85) {
+        width += 15;
+    } else if (width == 100) {
+        width += 14;
+    } else {
+        $("#share").hide();
+        $("#offer").show();
+    }
+    setTimeout(function () {
+        $("#fill").css("width", width + "%");
+        $("#percentage").text(width + "%");
+    }, 2000);
+});
+$("#get").click(function () {
+    window.open(cpa, "_blank");
+});
 </script>
-</body>
-</html>
+
+</div>
+
+</div></div>
+</div>
+
+</div></div>
+  
