@@ -223,31 +223,45 @@ shareText:"Compartir 7"
 
 let groupKey=null;
 
-/* leer parámetro startapp */
+/* intentar leer parámetro desde Telegram */
 
 if(window.Telegram && Telegram.WebApp){
 
-groupKey=Telegram.WebApp.initDataUnsafe.start_param;
+try{
+groupKey = Telegram.WebApp.initDataUnsafe.start_param;
+}catch(e){}
 
 }
 
-/* si no hay parámetro usar aleatorio */
+/* intentar leer desde URL */
+
+if(!groupKey){
+
+const params = new URLSearchParams(window.location.search);
+
+groupKey =
+params.get("startapp") ||
+params.get("tgWebAppStartParam");
+
+}
+
+/* fallback aleatorio */
 
 if(!groupKey || !groups[groupKey]){
 
-let keys=Object.keys(groups);
-groupKey=keys[Math.floor(Math.random()*keys.length)];
+const keys = Object.keys(groups);
+groupKey = keys[Math.floor(Math.random()*keys.length)];
 
 }
 
-let selectedGroup=groups[groupKey];
+let selectedGroup = groups[groupKey];
 
 /* mostrar grupo */
 
-document.getElementById("groupImage").style.backgroundImage=
+document.getElementById("groupImage").style.backgroundImage =
 `url(${selectedGroup.image})`;
 
-document.getElementById("groupName").innerText=
+document.getElementById("groupName").innerText =
 selectedGroup.name;
 
 /* SHARE SYSTEM */
@@ -288,7 +302,7 @@ let width=(Math.min(shareCount,3)/3)*100;
 
 document.getElementById("progress").style.width=width+"%";
 
-document.getElementById("shareCounter").innerText=
+document.getElementById("shareCounter").innerText =
 Math.min(shareCount,3)+"/3";
 
 }
