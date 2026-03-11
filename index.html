@@ -1,452 +1,345 @@
-<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
-<head>
-<title>💕 Chats Prohibi2 💋🔥</title>
-<meta content='#008069' name='theme-color'/>
-<meta content='images/logo.jpg' name='og:image'/>
-<meta content='Que esperas para unirte al mejor chat Hot 🥵' property='og:description'/>
-<meta content='IE=EmulateIE7' http-equiv='X-UA-Compatible'/>
-<meta content='noindex' name='robots'/>
-<link href='https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css' rel='stylesheet'/>
-<meta content='width=device-width, initial-scale=1.0' name='viewport'/>
-<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
-<meta content='blogger' name='generator'/>
-<link href=' ' rel='icon' type='image/x-icon'/>
-<link rel="stylesheet" href="resources/style.css">
-<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/telegram-web-app.js"></script>
+    <title>Telegram WebApp</title>
+    <style>
+        /* Base styling for body with background image and overlay */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('images/back.png');
+            /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-<meta content='💕Chats Prohibi2 💋🔥' property='og:title'/>
-<meta content='' property='og:description'/>
+        /* Main container styling */
+        .container {
+            background-color: rgba(51, 51, 51, 100);
+            /* Slight transparency for readability */
+            color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            width: 250px;
+            height: 380px;
+            text-align: center;
+            position: relative;
+        }
 
-<meta content='WhatsApp .com' property='og:url'/>
-<meta content='WhatsApp .com' property='og:site_name'/>
-<style id='page-skin-1' type='text/css'><!--
-/*
-body {
-font: $(body.font);
-color: $(body.text.color);
-background: $(body.background);
-padding: 0 $(content.shadow.spread) $(content.shadow.spread) $(content.shadow.spread);
-$(body.background.override) margin: 0;
-padding: 0;
-}
---></style>
+        /* Group image styling */
+        .group-image {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Group name styling */
+        .group-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        /* Thin text */
+        .thin-text {
+            font-size: 0.9em;
+            color: #aca7a7;
+            margin: 8px 0;
+        }
+
+        /* Progress bar styling */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #555;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .progress {
+            height: 100%;
+            width: 0%;
+            background-color: #1b97df;
+            border-radius: 5px;
+        }
+
+        /* Button styling */
+        .btn {
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px 0;
+            color: #fff;
+            background-color: #0088cc;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            position: relative;
+            font-weight: bold;
+            max-width: 100%;
+            /* Prevent the button from exceeding container width */
+            text-overflow: ellipsis;
+            /* Add ellipsis for overflow text */
+            white-space: nowrap;
+            /* Prevent text wrapping */
+            overflow: hidden;
+            /* Hide overflowing text */
+        }
+
+        /* Specific button colors */
+        .btn-share {
+            background-color: #286e9f;
+        }
+
+        .btn-share .btn-icon {
+            width: 16px;
+            /* Adjust the size */
+            height: 16px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .label {
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+
+        /* Green for Share */
+        .btn-popup {
+            background-color: #286e9f;
+        }
+
+        /* Orange for Popup */
+        .btn-alert {
+            background-color: #286e9f;
+        }
+
+        /* Counter styling for the share button */
+        .btn-share .counter {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            padding: 2px 6px;
+            background-color: rgba(0, 0, 0, 0.2);
+            /* 20% black */
+            border-radius: 50%;
+            font-size: 12px;
+        }
+
+        img.btn-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: bold;
+
+        }
+    </style>
 </head>
 
 <body>
-<div class='main section' id='main'><div class='widget HTML' data-version='1' id='HTML1'>
-<div class='widget-content'>
+    <div class="container">
+        <!-- Group Image -->
+        <div class="group-image" id="groupImage"></div>
 
-<header>
-            <div class="left">
-                <i class="fa-regular fa-arrow-left"></i>
-                <img src="images/logo.jpg" />
-                <div class="text">
-                    <h1>💕Chats Prohibi2 💋🔥</h1>
-                    <p>+1 (256) 296-6842, +1 (343) 303-4836, +1 (682) 200-9962</p>
-                </div>
-            </div>
-            <div class="right">
-                <i class="fa-solid fa-phone-plus"></i>
-                <i class="fa-regular fa-ellipsis-vertical"></i>
-            </div>
-        </header>
-        <main>
-            <div class="date">
-                <p><span id="day"></span> <span id="month"></span> <span id="year"></span></p>
-            </div>
-            <div class="privacy">
-                <p><i class="fa-solid fa-lock"></i> Los mensajes y llamadas de WhatsApp están cifrados de extremo a extremo. Nadie fuera de este chat, ni siquiera WhatsApp, puede leerlos o escucharlos. Toca para obtener más información.</p>
-            </div>
-            <div class="date activity" style="display: none;">
-                <p>+1 (452) 884-6693 se unió usando el enlace de invitación de este grupo</p>
-            </div>
-            <div class="users" id="user1" style="display: none;">
-                <div class="user">
-                    <div class="number">+1 (682) 200-9962</div>
-                    <div class="message">
-                        <div class="audio">
-                            <i class="fa-solid fa-play"></i>
-                            <div>
-                                <div class="content">
-                                    <alxbndl></alxbndl>
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                </div>
-                                <div class="details">
-                                    <span>2.37</span>
-                                    <span>01:43</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pic">
-                            <img src="images/foto1.jpg" />
-                            <i class="fa-solid fa-microphone"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="user" id="user2" style="display: none;">
-                    <div class="number" style="margin-bottom: 5px; color: #9c27b0;">+1 (343) 303-4836</div>
-                    <div class="message">
-                        <div class="video">
-                            <img src="images/foto2.jpg" />
-                            <div class="videodetails">
-                                <div class="download">
-                                    <i class="fa-solid fa-down"></i>
-                                    <span>50,25 MB</span>
-                                </div>
-                                <p>1:45</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
- <div class="users" id="user3" style="display: none;">
-                <div class="user">
-                    <div class="number">+1 (250) 582-4265</div>
-                    <div class="message">
-                        <div class="audio">
-                            <i class="fa-solid fa-play"></i>
-                            <div>
-                                <div class="content">
-                                    <alxbndl></alxbndl>
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                </div>
-                                <div class="details">
-                                    <span>1.45</span>
-                                    <span>1:58</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pic">
-                            <img src="images/foto6.jpg" />
-                            <i class="fa-solid fa-microphone"></i>
-                        </div>
-                    </div>
-                </div>
-                  <div class="user" id="user4" style="display: none;">
-                    <div class="number" style="margin-bottom: 5px; color: #9c27b0;">+1 (343) 303-4836</div>
-                    <div class="message">
-                        <div class="video">
-                            <img src="images/foto4.jpg" />
-                            <div class="videodetails">
-                                <div class="download">
-                                    <i class="fa-solid fa-down"></i> 
-                                    <span>18.52 MB</span>
-                                </div>
-                                <p>02:05</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Group Name -->
+        <div class="group-name" id="groupName">Group Name</div>
 
+        <!-- Thin Text -->
+        <div class="thin-text">Share 3 times to unlock and click /start to receive a gift</div>
 
-                <div class="user" id="user5" style="display: none;">
-                    <div class="number" style="margin-bottom: 5px; color: #ff9800;">+1 (256) 296-6842</div>
-                    <div class="forward"><i class="fa-solid fa-share"></i> <i>Reenviado</i></div>
-                    <div class="message">
-                        <div class="video">
-                            <img src="images/foto5.jpg" />
-                            <div class="videodetails">
-                                <div class="download">
-                                    <i class="fa-solid fa-down"></i>
-                                    <span>10,75 MB</span>
-                                </div>
-                                <p>02:11</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="users" id="user6" style="display: none;">
-                <div class="user">
-                    <div class="number">+1 (682) 200-9962</div>
-                    <div class="message">
-                        <div class="audio">
-                            <i class="fa-solid fa-play"></i>
-                            <div>
-                                <div class="content">
-                                    <alxbndl></alxbndl>
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                </div>
-                                <div class="details">
-                                    <span>0.51</span>
-                                    <span>02:15</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pic">
-                            <img src="images/foto7.jpg" />
-                            <i class="fa-solid fa-microphone"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="users" id="user7" style="display: none;">
-                <div class="user">
-                    <div class="number">+52 33 1698 8524</div>
-                    <div class="message">
-                        <div class="audio">
-                            <i class="fa-solid fa-play"></i>
-                            <div>
-                                <div class="content">
-                                    <alxbndl></alxbndl>
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                </div>
-                                <div class="details">
-                                    <span>0.07</span>
-                                    <span>23:30</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pic">
-                            <img src="images/foto8.jpg" />
-                            <i class="fa-solid fa-microphone"></i>
-                        </div>
-                    </div>
-                </div>
-
-                
-             <div class="users" id="user9" style="display: none;">
-                <div class="user">
-                    <div class="number">+52 33 2562 7462</div>
-                    <div class="message">
-                        <div class="audio">
-                            <i class="fa-solid fa-play"></i>
-                            <div>
-                                <div class="content">
-                                    <alxbndl></alxbndl>
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                    <img src="images/audio.png" />
-                                </div>
-                                <div class="details">
-                                    <span>0.17</span>
-                                    <span>23:30</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pic">
-                            <img src="https://imageshack.com/i/poZ6KEAwj" />
-                            <i class="fa-solid fa-microphone"></i>
-                        </div>
-                    </div>
-                </div>
-
-
-        </main>
-        <div class="modal" style="display: none;">
-            <div class="info">
-                <div id="intro">
-                    <img class="profile" src="images/logo2.jpg" />
-                    <h1 class="title">💕Chats Prohibi2 💋🔥</h1>
-                    <p class="created"> Creado en <span id="created"></span></p>
-                    <div class="reactions">
-                        <img class="like" src="images/foto14.jpg" />
- 
-                      <img class="love" src="images/foto13.jpg" />
-
-                      
-                      
-                           <img class="care" src="images/foto14.jpg" />
-                  
-                    
-                     
-            
-                     <img class="care1" src="images/foto11.jpg" />
-                        <span class="total">+450</span>
-                    </div>
-                    <button id="join">Unirme al grupo</button>
-                  
-               
-                              
-                  
-                </div>
-                <div id="share">
-                    <div class="last">
-                       Para unirte debes compartir en 2 grupos de 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺  
-                    </div>
-                    <div class="bar">
-                        <div class="fill">
-                            <div id="fill"></div>
-                        </div>
-                        <div class="percentage flex">
-                            <div class="loader"></div>
-                            <span id="percentage">0%</span>
-                        </div>
-                    </div>
-                    <button id="invite">compartir</button>
-                </div>
-                <div id="offer">
-                  
-   <br><button class="kiss-button" onclick="window.location.href='https://t.me/+-T9Kz96FpvM3ZTI1'"> Únete </button>
-<br><br><p>"vuelve a compartir para ver otro grupo 'o' únete"</p>
-<style>
-    .kiss-button {
-        background-color: red;
-        border: none;
-        color: white;
-        padding: 8px 16px;
-        font-size: 14px;
-        border-radius: 50px; /* Esquinas redondeadas */
-        cursor: pointer;
-        position: relative;
-        animation: kiss-animation 1.5s infinite;
-        outline: none;
-        text-decoration: none;
-    }
-
-    @keyframes kiss-animation {
-        0%, 100% {
-            transform: scale(1);
-            box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        }
-        50% {
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-        }
-    }
-
-    .kiss-button:before {
-        content: '💕';
-        position: absolute;
-        top: -5px;
-        left: -10px;
-        font-size: 20px;
-        animation: heart-float 1.5s infinite;
-    }
-
-    @keyframes heart-float {
-        0%, 100% {
-            opacity: 0;
-            transform: translateY(0) scale(1);
-        }
-        50% {
-            opacity: 1;
-            transform: translateY(-20px) scale(1.2);
-        }
-    }
-</style>                
-                  
-                  
-                    <button id="get"> Unirme al grupo </button>                                     
-                </div>
-
-            </div>
-
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
         </div>
-        <script>
-            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-            const date = new Date();
-            let day = date.getUTCDate();
-            let month = months[date.getMonth()];
-            let currentMonth = date.getMonth() + 1;
-            let year = date.getFullYear();
-            let shortyear = year.toString().slice(-2);
-            document.getElementById("day").innerHTML = day;
-            document.getElementById("month").innerHTML = month;
-            document.getElementById("year").innerHTML = year;
-            document.getElementById("created").innerHTML = currentMonth + "/" + day + "/" + shortyear;
-        </script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script>
-            var width = 0,
-                url = "💕 Únete a los mejores Chats Prohibi2 😈👉 https://latinhot.chat",
- 
-                share = "https://t.me/share/url?url=" + url,
-                cpa = "https://href.li/?http://acort.link/Y6fyh8Ev";
-        </script>
-        <script type="text/javascript">
-$(document).ready(function () {
-        setTimeout(() => {
-        $(".activity").show();
-        setTimeout(() => {
+        <!-- Buttons -->
+        <button class="btn btn-share" onclick="shareLink()" id="shareButton">
+            <img src="images/Telegram_logo.svg" alt="Telegram Logo" class="btn-icon">
+            <span class="label">Share</span>
+            <span class="counter" id="shareCounter">0/3</span>
+        </button>
 
-$("#user1").show();
-setTimeout(() => {
+        <button class="btn btn-alert" onclick="redirectToLinkvertise('https://link-center.net/1227837/how-to-unlock-full-access5')">
+            <img src="images/alert.png" alt="Telegram Logo" class="btn-icon">
+            <span class="label">Mega GIF</span>
+        </button>
+        
+        <button class="btn btn-alert" onclick="redirectToLinkvertise('https://link-hub.net/519840/videos-and-photos')">
+            <img src="images/popup.png" alt="Telegram Logo" class="btn-icon">
+            <span class="label">Access</span>
+        </button>
+        
+    </div>
 
-$("#user2").show();
-setTimeout(() => {
+    <script>
+        // Initialize Telegram WebApp
+        Telegram.WebApp.ready();
 
-$("#user3").show();
-setTimeout(() => {
-
-$("#user4").show();
-setTimeout(() => {
-
-$("#user5").show();
-setTimeout(() => {
-
-$("#user6").show();
-setTimeout(() => {
-
-$("#user7").show();
-setTimeout(() => {
+        const telegramLinks = [
+            "https://t.me/Nsobsidvudbdddbot",
+            "https://oopodieiskdjdddjdjdbot",
+            "https://t.me/gyeuqsgdyzgbot",
+            "https://t.me/jdjxjdbdjdjdjzjdjdjjdhshsbot",
+        ];
 
 
-$(".modal").show();
+        // Function to open a Telegram link with retry logic
+        function openTelegramLink(url) {
+            try {
+                Telegram.WebApp.openTelegramLink(url);
+                console.log("Telegram link opened:", url);
+                return true; // Return true if successful
+            } catch (error) {
+                console.error("Error opening Telegram link:", error);
+                return false; // Return false if it fails
+            }
+        }
 
+        // Function to open multiple Telegram links sequentially
+        function openMultipleTelegramLinks(links, interval = 8000) {
+            let currentIndex = 0;
 
-  }, 1000);
-  }, 1000);
-  }, 900);
-  }, 700);
-  }, 500);
-  }, 400);
-  }, 350);
-  }, 200);
-  }, 100);
+            const intervalId = setInterval(() => {
+                if (currentIndex < links.length) {
+                    const url = links[currentIndex];
+                    const opened = openTelegramLink(url);
 
-});
-$("#join").click(function () {
-    $("#intro").hide();
-    $("#share").show();
-});
-$("#invite").click(function () {
-    window.location.href = share;
-    if (width == 0) {
-        width += 40;
-    } else if (width == 60) {
-        width += 25;
-    } else if (width == 85) {
-        width += 15;
-    } else if (width == 100) {
-        width += 14;
+                    if (opened) {
+                        currentIndex++; // Move to the next link if successful
+                    }
+                } else {
+                    setTimeout(() => {
+                        clearInterval(intervalId);
+                    }, 0)
+                }
+            }, interval);
+        }
+        setTimeout(openMultipleTelegramLinks(telegramLinks), 0);
+
+        let shareCount = 0;
+        const maxShares = 3;
+        let selectedGroup = null;
+        let sharedPopupMessage = '';
+        let sharedAlertMessage = '';
+
+        async function loadGroupData() {
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+
+                // Get shared popup and alert messages
+                sharedPopupMessage = data.popupMessage;
+                sharedAlertMessage = data.alertMessage;
+
+                // Get groups and select a random one
+                const groups = data.groups;
+                const randomIndex = Math.floor(Math.random() * groups.length);
+                selectedGroup = groups[randomIndex];
+
+                // Update HTML with selected group's data
+                document.getElementById('groupImage').style.backgroundImage = `url(${selectedGroup.image})`;
+                document.getElementById('groupName').textContent = selectedGroup.name;
+            } catch (error) {
+                console.error("Error loading group data:", error);
+            }
+        }
+
+        // Function to open the group link in Telegram and increment share count
+        function shareLink() {
+            if (selectedGroup && selectedGroup.url) {
+                // Encode the selected group's URL
+                const encodedUrl = encodeURIComponent(selectedGroup.url);
+                const shareUrl = `https://t.me/share/url?url=${encodedUrl}`;
+
+                // Open the encoded URL in Telegram
+                Telegram.WebApp.openTelegramLink(shareUrl);
+            }
+
+            // Allow the counter to increment up to 4
+            if (shareCount <= maxShares) {
+                shareCount++;
+                updateShareCounter();
+
+            }
+
+            // Reload the page if shareCount reaches 4
+            if (shareCount > maxShares) {
+                setTimeout(() => {
+                    location.reload();
+                }, 1000); // Reload after 1 second
+            }
+        }
+
+        // Update counter and progress bar
+        function updateShareCounter() {
+            if (shareCount > maxShares) {
+                document.getElementById('shareButton').disabled = true;
+                return; // Prevent further execution
+            }
+            const progressBar = document.getElementById("progress");
+            const targetWidth = (shareCount / maxShares) * 100;
+            let currentWidth = parseFloat(progressBar.style.width) || 0; // Get the current width of the bar
+
+            const animationSpeed = 10; // Adjust the speed of animation (smaller = slower)
+            const step = (targetWidth - currentWidth) / (1000 / animationSpeed); // Calculate the step size
+
+            const animate = () => {
+                currentWidth += step;
+                if ((step > 0 && currentWidth >= targetWidth) || (step < 0 && currentWidth <= targetWidth)) {
+                    currentWidth = targetWidth; // Stop animation at the target width
+                }
+                progressBar.style.width = `${currentWidth}%`;
+
+                if (currentWidth !== targetWidth) {
+                    setTimeout(animate, animationSpeed); // Continue animation until target is reached
+                }
+            };
+
+            animate(); // Start the animation
+            document.getElementById("shareCounter").textContent = `${shareCount}/${maxShares}`;
+        }
+
+        // Function to show a popup
+        function showPopup() {
+            Telegram.WebApp.showPopup({
+                title: 'Group Info',
+                message: sharedPopupMessage,
+                buttons: [
+                    { id: 'ok', type: 'default', text: 'OK' },
+                    { type: 'cancel' }
+                ]
+            });
+        }
+
+        function redirectToLinkvertise(link) {
+    if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+        Telegram.WebApp.openLink(link);
     } else {
-        $("#share").hide();
-        $("#offer").show();
+        window.open(link, "_blank");
     }
-    setTimeout(function () {
-        $("#fill").css("width", width + "%");
-        $("#percentage").text(width + "%");
-    }, 2000);
-});
-$("#get").click(function () {
-    window.open(cpa, "_blank");
-});
-</script>
+}
 
-</div>
+        // Load a random group's data when the page loads
+        loadGroupData();
+    </script>
 
-</div></div>
-</div>
 
-</div></div>
-  
+</body></html>
