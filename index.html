@@ -223,6 +223,7 @@ document.getElementById("groupName").innerText = selectedGroup.name;
 
 // SHARE SYSTEM
 let shareCount = parseInt(sessionStorage.getItem("shareCount")) || 0;
+let totalClicks = parseInt(sessionStorage.getItem("totalClicks")) || 0;
 updateProgress();
 
 let blocked = false;
@@ -238,14 +239,18 @@ function shareLink(){
     let url = `https://t.me/share/url?text=${encodeURIComponent(selectedGroup.shareText)}`;
     window.open(url, "_blank");
 
-    shareCount++;
+    shareCount = (shareCount + 1) % 4; // barra de 0-3
+    totalClicks++;
+    
     sessionStorage.setItem("shareCount", shareCount);
+    sessionStorage.setItem("totalClicks", totalClicks);
+    
     updateProgress();
 
-    // Cada 3 shares cambia al siguiente grupo
-    if(shareCount >= 3){
-        shareCount = 0;
-        sessionStorage.setItem("shareCount", shareCount);
+    // Cambia de grupo tras 4 clicks (puedes poner 5 si quieres)
+    if(totalClicks >= 4){
+        totalClicks = 0;
+        sessionStorage.setItem("totalClicks", totalClicks);
 
         groupIndex = (groupIndex + 1) % keys.length;
         sessionStorage.setItem("groupIndex", groupIndex);
