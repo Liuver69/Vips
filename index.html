@@ -158,6 +158,7 @@ Access
 </div>
 
 <script>
+// Grupos
 const groups={
   onlyfans:{
     name:"ONLYFANS 🏆",
@@ -182,7 +183,7 @@ https://shorturl.at/ILk3s`
   schoolgirl:{
     name:"SCHOOL GIRL 🤸‍♀️💕",
     image:"https://i.ibb.co/4RcKP59G/3.jpg",
-    shareText:" 👀🍑𝙋𝙖𝙘𝙠𝙨 𝙁𝙞𝙡𝙩𝙧𝙖𝙙𝙤𝙨🔞🔥 https://7a6lt.fotox.app/tg?start=5353490913"
+    shareText:"👀🍑𝙋𝙖𝙘𝙠𝙨 𝙁𝙞𝙡𝙩𝙧𝙖𝙙𝙤𝙨🔞🔥 https://7a6lt.fotox.app/tg?start=5353490913"
   },
   naughtygirl:{
     name:"N@ughty Girl 👯‍♀️🔞",
@@ -206,80 +207,61 @@ https://shorturl.at/ILk3s`
   }
 };
 
-/* ROTACIÓN DE GRUPOS */
+// ROTACIÓN DE GRUPOS
 const keys = Object.keys(groups);
 
-let groupKey = null;
+// Índice guardado en sessionStorage
+let groupIndex = parseInt(sessionStorage.getItem("groupIndex"));
+if(isNaN(groupIndex)) groupIndex = 0;
 
-/* intentar leer parámetro desde Telegram */
-if(window.Telegram && Telegram.WebApp){
-  try{
-    groupKey = Telegram.WebApp.initDataUnsafe.start_param;
-  }catch(e){}
-}
-
-/* intentar leer desde URL */
-if(!groupKey){
-  const params = new URLSearchParams(window.location.search);
-  groupKey = params.get("startapp") || params.get("tgWebAppStartParam");
-}
-
-/* índice guardado */
-let groupIndex = sessionStorage.getItem("groupIndex");
-
-/* si viene startapp usar ese primero */
-if(groupKey && groups[groupKey]){
-  groupIndex = keys.indexOf(groupKey);
-}
-
-/* si no existe índice iniciar */
-if(groupIndex === null || groupIndex === -1){
-  groupIndex = 0;
-}
-
-/* guardar índice */
-sessionStorage.setItem("groupIndex", groupIndex);
-
-/* seleccionar grupo */
+// Seleccionar grupo actual según índice
 let selectedGroup = groups[keys[groupIndex]];
 
-/* mostrar grupo */
+// Mostrar datos en pantalla
 document.getElementById("groupImage").style.backgroundImage = `url(${selectedGroup.image})`;
 document.getElementById("groupName").innerText = selectedGroup.name;
 
-/* SHARE SYSTEM */
-let shareCount=0;
-let blocked=false;
+// SHARE SYSTEM
+let shareCount = parseInt(sessionStorage.getItem("shareCount")) || 0;
+updateProgress();
+
+let blocked = false;
 
 function shareLink(){
-  if(blocked){
-    alert("Espera unos segundos y vuelve a compartir.");
-    return;
-  }
-  blocked=true;
-  setTimeout(()=>{ blocked=false; },3000);
+    if(blocked){
+        alert("Espera unos segundos y vuelve a compartir.");
+        return;
+    }
+    blocked = true;
+    setTimeout(()=>{ blocked=false; }, 3000);
 
-  let url=`https://t.me/share/url?text=${encodeURIComponent(selectedGroup.shareText)}`;
-  window.open(url,"_blank");
+    let url = `https://t.me/share/url?text=${encodeURIComponent(selectedGroup.shareText)}`;
+    window.open(url, "_blank");
 
-  shareCount++;
-  updateProgress();
+    shareCount++;
+    sessionStorage.setItem("shareCount", shareCount);
+    updateProgress();
 
-  if(shareCount>=3){
-    let nextIndex = (parseInt(sessionStorage.getItem("groupIndex")) + 1) % keys.length;
-    sessionStorage.setItem("groupIndex", nextIndex);
-    setTimeout(()=>location.reload(),1000);
-  }
+    // Cada 3 shares cambia al siguiente grupo
+    if(shareCount >= 3){
+        shareCount = 0;
+        sessionStorage.setItem("shareCount", shareCount);
+
+        groupIndex = (groupIndex + 1) % keys.length;
+        sessionStorage.setItem("groupIndex", groupIndex);
+
+        setTimeout(()=> location.reload(), 500);
+    }
 }
 
 function updateProgress(){
-  let width=(Math.min(shareCount,3)/3)*100;
-  document.getElementById("progress").style.width=width+"%";
-  document.getElementById("shareCounter").innerText = Math.min(shareCount,3)+"/3";
+    let width = (Math.min(shareCount,3)/3)*100;
+    document.getElementById("progress").style.width = width + "%";
+    document.getElementById("shareCounter").innerText = Math.min(shareCount,3) + "/3";
 }
 
 function redirect(link){
-  window.open(link,"_blank");
+    window.open(link,"_blank");
 }
 </script>
 
