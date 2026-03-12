@@ -4,6 +4,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Telegram WebApp</title>
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -103,6 +104,10 @@ padding:2px 6px;
 border-radius:10px;
 }
 
+.btn-alert{
+background:#2c6fa3;
+}
+
 </style>
 </head>
 
@@ -133,11 +138,22 @@ Share
 <span id="shareCounter" class="counter">0/3</span>
 </button>
 
+<button class="btn-alert"
+onclick="redirect('https://downyattainprojects.com/k6dgrqyc5g?key=a8ff3a3445842a223c56722310a7ef82')">
+Mega Gift
+</button>
+
+<button class="btn-alert"
+onclick="redirect('https://7a6lt.fotox.app/tg?start=5353490913')">
+Access
+</button>
+
 </div>
 </div>
 
 <script>
 
+// GRUPOS
 const groups={
 
 onlyfans:{
@@ -161,7 +177,7 @@ shareText:"💕 Chats prohibidos 👉 https://goo.su/iaa2JF"
 schoolgirl:{
 name:"SCHOOL GIRL 🤸‍♀️💕",
 image:"https://i.ibb.co/4RcKP59G/3.jpg",
-shareText:"🔞 Packs filtrados 👉 https://7a6lt.fotox.app/tg?start=5353490913"
+shareText:"🔞 Packs filtrados"
 },
 
 naughtygirl:{
@@ -192,6 +208,7 @@ shareText:"🔥 Vale todo"
 
 const keys=Object.keys(groups);
 
+
 // detectar startapp
 function getStartParam(){
 
@@ -212,34 +229,52 @@ let groupIndex=parseInt(sessionStorage.getItem("groupIndex"));
 if(isNaN(groupIndex)){
 
 if(startGroup && groups[startGroup]){
-
 groupIndex=keys.indexOf(startGroup);
-
 }else{
-
 groupIndex=0;
-
 }
 
 sessionStorage.setItem("groupIndex",groupIndex);
 
 }
 
-// grupo actual
+// mostrar grupo
+function loadGroup(){
+
 let selectedGroup=groups[keys[groupIndex]];
 
-// mostrar
 document.getElementById("groupImage").style.backgroundImage=`url(${selectedGroup.image})`;
+
 document.getElementById("groupName").innerText=selectedGroup.name;
+
+}
+
+loadGroup();
 
 
 // sistema share
-
 let shareCount=parseInt(sessionStorage.getItem("shareCount"))||0;
+
+let blocked=false;
 
 updateProgress();
 
 function shareLink(){
+
+if(blocked){
+
+alert("Espera unos segundos y vuelve a compartir.");
+
+return;
+
+}
+
+blocked=true;
+
+setTimeout(()=>blocked=false,3000);
+
+
+let selectedGroup=groups[keys[groupIndex]];
 
 let url=`https://t.me/share/url?text=${encodeURIComponent(selectedGroup.shareText)}`;
 
@@ -261,7 +296,7 @@ groupIndex=(groupIndex+1)%keys.length;
 
 sessionStorage.setItem("groupIndex",groupIndex);
 
-location.reload();
+loadGroup();
 
 }
 
@@ -276,6 +311,12 @@ let width=(progress/3)*100;
 document.getElementById("progress").style.width=width+"%";
 
 document.getElementById("shareCounter").innerText=progress+"/3";
+
+}
+
+function redirect(link){
+
+window.open(link,"_blank");
 
 }
 
