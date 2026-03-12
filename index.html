@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Telegram WebApp</title>
 
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 <style>
 body{
   font-family: Arial;
@@ -161,78 +163,89 @@ const groups={
   onlyfans:{
     name:"ONLYFANS 🏆",
     image:"https://i.ibb.co/5X0PQH3q/4-1.jpg",
-    shareText:`🔞𝐎𝐧𝐥𝐲𝐟𝐚𝐧𝐬 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐨𝐬 👀👇
-PACKS #1
-https://goo.su/V2TRr`
+    shareText:"🔞Onlyfans exclusivos 👀👇 https://goo.su/V2TRr"
   },
 
   deepweb:{
     name:"DEEP WEB 🔞",
     image:"https://i.ibb.co/NdP0DQJT/6.jpg",
-    shareText:"👀🔥Solo entran los primeros 100 👉 https://shorturl.at/4nIDZ"
+    shareText:"🔥Solo entran los primeros 100 👉 https://shorturl.at/4nIDZ"
   },
 
   sugardaddy:{
     name:"SUGAR DADDY 👅🍭",
     image:"https://i.ibb.co/rK41hHPt/1-1.jpg",
-    shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
+    shareText:"💕 Chats Prohibidos 👉 https://goo.su/iaa2JF"
   },
 
   schoolgirl:{
     name:"SCHOOL GIRL 🤸‍♀️💕",
     image:"https://i.ibb.co/4RcKP59G/3.jpg",
-    shareText:"👀🍑𝙋𝙖𝙘𝙠𝙨 𝙁𝙞𝙡𝙩𝙧𝙖𝙙𝙤𝙨🔞🔥 https://7a6lt.fotox.app/tg?start=5353490913"
+    shareText:"🔞 Packs filtrados 👉 https://7a6lt.fotox.app/tg?start=5353490913"
   },
 
   naughtygirl:{
     name:"N@ughty Girl 👯‍♀️🔞",
     image:"https://i.ibb.co/q30ZwJv2/7-1.jpg",
-    shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
+    shareText:"💕 Únete 👉 https://goo.su/iaa2JF"
   },
 
   campiracy:{
     name:"CAM PIRACY 🏴‍☠️🔞",
     image:"https://i.ibb.co/KpgTYdv0/2.jpg",
-    shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
+    shareText:"🔥 Contenido exclusivo 👉 https://goo.su/iaa2JF"
   },
 
   transexuales:{
     name:"TRANS & GAY 🌈🔥",
     image:"https://i.ibb.co/nN47YhZp/IMG-20260311-202738-176.jpg",
-    shareText:"🌈🔥Únete a los mejores chats TRANS y GAY"
+    shareText:"🌈 Chats exclusivos"
   },
 
   valetodo:{
     name:"⛔️VALE TODO⛔️",
     image:"https://i.ibb.co/kg2fDXRL/IMG-20260311-124552-378.jpg",
-    shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
+    shareText:"🔥 Vale Todo 👉 https://goo.su/iaa2JF"
   }
 };
 
 // CLAVES
-const keys = Object.keys(groups);
+const keys=Object.keys(groups);
 
-// LEER startapp
-function getStartParam(){
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get("startapp");
+// OBTENER start_param desde Telegram
+function getTelegramStartParam(){
+
+  if(window.Telegram && Telegram.WebApp){
+    let param=Telegram.WebApp.initDataUnsafe?.start_param;
+    if(param) return param;
+  }
+
+  const params=new URLSearchParams(window.location.search);
+
+  return params.get("tgWebAppStartParam") || params.get("startapp");
 }
 
-let startGroup = getStartParam();
+let startGroup=getTelegramStartParam();
 
 let groupIndex;
 
-// SI VIENE DE TELEGRAM
+// SI VIENE DE BOT
 if(startGroup && groups[startGroup]){
-  groupIndex = keys.indexOf(startGroup);
-  sessionStorage.setItem("groupIndex",groupIndex);
+
+  groupIndex=keys.indexOf(startGroup);
+
 }else{
-  groupIndex = parseInt(sessionStorage.getItem("groupIndex"));
-  if(isNaN(groupIndex)) groupIndex = 0;
+
+  groupIndex=parseInt(sessionStorage.getItem("groupIndex"));
+
+  if(isNaN(groupIndex)) groupIndex=0;
+
 }
 
-// GRUPO SELECCIONADO
-let selectedGroup = groups[keys[groupIndex]];
+sessionStorage.setItem("groupIndex",groupIndex);
+
+// GRUPO ACTUAL
+let selectedGroup=groups[keys[groupIndex]];
 
 // MOSTRAR
 document.getElementById("groupImage").style.backgroundImage=`url(${selectedGroup.image})`;
@@ -272,7 +285,6 @@ updateProgress();
 if(totalClicks>=4){
 
 totalClicks=0;
-
 sessionStorage.setItem("totalClicks",0);
 
 groupIndex=(groupIndex+1)%keys.length;
