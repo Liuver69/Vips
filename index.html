@@ -6,113 +6,111 @@
 <title>Telegram WebApp</title>
 
 <style>
-
 body{
-font-family: Arial;
-background:#000;
-margin:0;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-color:#fff;
+  font-family: Arial;
+  background:#000;
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
 }
 
 .container{
-width:260px;
-height:390px;
-border-radius:12px;
-overflow:hidden;
+  width:260px;
+  height:430px;
+  border-radius:12px;
+  overflow:hidden;
 }
 
 .group-header{
-background:#3f3f3f;
-padding:15px;
-text-align:center;
+  background:#3f3f3f;
+  padding:15px;
+  text-align:center;
 }
 
 .group-image{
-width:100px;
-height:100px;
-border-radius:50%;
-margin:auto;
-background-size:cover;
-background-position:center;
-border:2px solid #1b97df;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  margin:auto;
+  background-size:cover;
+  background-position:center;
+  border:2px solid #1b97df;
 }
 
 .group-name{
-font-size:18px;
-font-weight:bold;
-margin-top:8px;
+  font-size:18px;
+  font-weight:bold;
+  margin-top:8px;
 }
 
 .thin-text{
-font-size:13px;
-color:#cfcfcf;
-margin-top:4px;
+  font-size:13px;
+  color:#cfcfcf;
+  margin-top:4px;
 }
 
 .group-footer{
-background:#4a4a4a;
-padding:12px;
+  background:#4a4a4a;
+  padding:12px;
 }
 
 .progress-bar{
-width:100%;
-height:8px;
-background:#2e2e2e;
-border-radius:5px;
-overflow:hidden;
-margin-bottom:10px;
+  width:100%;
+  height:8px;
+  background:#2e2e2e;
+  border-radius:5px;
+  overflow:hidden;
+  margin-bottom:10px;
 }
 
 .progress{
-width:0%;
-height:100%;
-background:#1b97df;
-transition:width .8s ease;
+  width:0%;
+  height:100%;
+  background:#1b97df;
+  transition:width .8s ease;
 }
 
 button{
-width:100%;
-padding:10px;
-margin:6px 0;
-border:none;
-border-radius:5px;
-font-weight:bold;
-color:white;
-cursor:pointer;
-box-shadow:none;
-outline:none;
-appearance:none;
+  width:100%;
+  padding:10px;
+  margin:6px 0;
+  border:none;
+  border-radius:5px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  box-shadow:none;
+  outline:none;
+  appearance:none;
 }
 
 .btn-share{
-background:#2c6fa3;
-position:relative;
+  background:#2c6fa3;
+  position:relative;
 }
 
 .btn-icon{
-width:16px;
-vertical-align:middle;
-margin-right:6px;
+  width:16px;
+  vertical-align:middle;
+  margin-right:6px;
 }
 
 .counter{
-position:absolute;
-right:10px;
-top:8px;
-font-size:12px;
-background:rgba(0,0,0,.25);
-padding:2px 6px;
-border-radius:10px;
+  position:absolute;
+  right:10px;
+  top:8px;
+  font-size:12px;
+  background:rgba(0,0,0,.25);
+  padding:2px 6px;
+  border-radius:10px;
 }
 
 .btn-alert{
-background:#2c6fa3;
+  background:#2c6fa3;
 }
-
 </style>
 </head>
 
@@ -139,183 +137,150 @@ Share 3 times to unlock and click /start to receive a gift
 </div>
 
 <button class="btn-share" onclick="shareLink()">
-
-<img class="btn-icon"
-src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
-
+<img class="btn-icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
 Share
-
 <span id="shareCounter" class="counter">0/3</span>
-
 </button>
 
 <button class="btn-alert"
 onclick="redirect('https://downyattainprojects.com/k6dgrqyc5g?key=a8ff3a3445842a223c56722310a7ef82')">
-
-<img class="btn-icon"
-src="https://i.ibb.co/q3JgGYYh/alert.png">
-
+<img class="btn-icon" src="https://i.ibb.co/q3JgGYYh/alert.png">
 Mega Gift
-
 </button>
 
 <button class="btn-alert"
 onclick="redirect('https://7a6lt.fotox.app/tg?start=5353490913')">
-
-<img class="btn-icon"
-src="https://i.ibb.co/gb6ZChYn/popup.png">
-
+<img class="btn-icon" src="https://i.ibb.co/gb6ZChYn/popup.png">
 Access
-
 </button>
 
 </div>
-
 </div>
 
 <script>
-
 const groups={
-
-onlyfans:{
-name:"ONLYFANS 🏆",
-image:"https://i.ibb.co/5X0PQH3q/4-1.jpg",
-shareText:`🔞𝐎𝐧𝐥𝐲𝐟𝐚𝐧𝐬 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐨𝐬, 𝐮́𝐧𝐞𝐭𝐞 𝐲 𝐝𝐢𝐬𝐟𝐫𝐮𝐭𝐚 👀👇
+  onlyfans:{
+    name:"ONLYFANS 🏆",
+    image:"https://i.ibb.co/5X0PQH3q/4-1.jpg",
+    shareText:`🔞𝐎𝐧𝐥𝐲𝐟𝐚𝐧𝐬 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐨𝐬, 𝐮́𝐧𝐞𝐭𝐞 𝐲 𝐝𝐢𝐬𝐟𝐫𝐮𝐭𝐚 👀👇
 PACKS #1
 https://goo.su/V2TRr
 
 PACKS #2
 https://shorturl.at/ILk3s`
-},
-
-deepweb:{
-name:"DEEP WEB 🔞",
-image:"https://i.ibb.co/NdP0DQJT/6.jpg",
-shareText:"👀🔥Solo entran los primeros 100 👉 https://shorturl.at/4nIDZ"
-},
-
-sugardaddy:{
-name:"SUGAR DADDY 👅🍭",
-image:"https://i.ibb.co/rK41hHPt/1-1.jpg",
-shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
-},
-
-schoolgirl:{
-name:"SCHOOL GIRL 🤸‍♀️💕",
-image:"https://i.ibb.co/4RcKP59G/3.jpg",
-shareText:" 👀🍑𝙋𝙖𝙘𝙠𝙨 𝙁𝙞𝙡𝙩𝙧𝙖𝙙𝙤𝙨🔞🔥 https://7a6lt.fotox.app/tg?start=5353490913"
-},
-
-naughtygirl:{
-name:"N@ughty Girl 👯‍♀️🔞",
-image:"https://i.ibb.co/q30ZwJv2/7-1.jpg",
-shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
-},
-
-campiracy:{
-name:"CAM PIRACY 🏴‍☠️🔞",
-image:"https://i.ibb.co/KpgTYdv0/2.jpg",
-shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
-},
-
-valetodo:{
-name:"⛔️VALE TODO⛔️",
-image:"https://i.ibb.co/kg2fDXRL/IMG-20260311-124552-378.jpg",
-shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
-}
-
+  },
+  deepweb:{
+    name:"DEEP WEB 🔞",
+    image:"https://i.ibb.co/NdP0DQJT/6.jpg",
+    shareText:"👀🔥Solo entran los primeros 100 👉 https://shorturl.at/4nIDZ"
+  },
+  sugardaddy:{
+    name:"SUGAR DADDY 👅🍭",
+    image:"https://i.ibb.co/rK41hHPt/1-1.jpg",
+    shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
+  },
+  schoolgirl:{
+    name:"SCHOOL GIRL 🤸‍♀️💕",
+    image:"https://i.ibb.co/4RcKP59G/3.jpg",
+    shareText:" 👀🍑𝙋𝙖𝙘𝙠𝙨 𝙁𝙞𝙡𝙩𝙧𝙖𝙙𝙤𝙨🔞🔥 https://7a6lt.fotox.app/tg?start=5353490913"
+  },
+  naughtygirl:{
+    name:"N@ughty Girl 👯‍♀️🔞",
+    image:"https://i.ibb.co/q30ZwJv2/7-1.jpg",
+    shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
+  },
+  campiracy:{
+    name:"CAM PIRACY 🏴‍☠️🔞",
+    image:"https://i.ibb.co/KpgTYdv0/2.jpg",
+    shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
+  },
+  valetodo:{
+    name:"⛔️VALE TODO⛔️",
+    image:"https://i.ibb.co/kg2fDXRL/IMG-20260311-124552-378.jpg",
+    shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
+  },
+  transexuales:{
+    name:"TRANS & GAY 🌈🔥",
+    image:"https://i.ibb.co/nN47YhZp/IMG-20260311-202738-176.jpg",
+    shareText:"🌈🔥Únete a los mejores chats TRANS y GAY 👀👉 https://shorturl.at/TRANSGAY"
+  }
 };
 
-let groupKey=null;
+/* ROTACIÓN DE GRUPOS */
+const keys = Object.keys(groups);
+
+let groupKey = null;
 
 /* intentar leer parámetro desde Telegram */
-
 if(window.Telegram && Telegram.WebApp){
-
-try{
-groupKey = Telegram.WebApp.initDataUnsafe.start_param;
-}catch(e){}
-
+  try{
+    groupKey = Telegram.WebApp.initDataUnsafe.start_param;
+  }catch(e){}
 }
 
 /* intentar leer desde URL */
-
 if(!groupKey){
-
-const params = new URLSearchParams(window.location.search);
-
-groupKey =
-params.get("startapp") ||
-params.get("tgWebAppStartParam");
-
+  const params = new URLSearchParams(window.location.search);
+  groupKey = params.get("startapp") || params.get("tgWebAppStartParam");
 }
 
-/* fallback aleatorio */
+/* índice guardado */
+let groupIndex = sessionStorage.getItem("groupIndex");
 
-if(!groupKey || !groups[groupKey]){
-
-const keys = Object.keys(groups);
-groupKey = keys[Math.floor(Math.random()*keys.length)];
-
+/* si viene startapp usar ese primero */
+if(groupKey && groups[groupKey]){
+  groupIndex = keys.indexOf(groupKey);
 }
 
-let selectedGroup = groups[groupKey];
+/* si no existe índice iniciar */
+if(groupIndex === null || groupIndex === -1){
+  groupIndex = 0;
+}
+
+/* guardar índice */
+sessionStorage.setItem("groupIndex", groupIndex);
+
+/* seleccionar grupo */
+let selectedGroup = groups[keys[groupIndex]];
 
 /* mostrar grupo */
-
-document.getElementById("groupImage").style.backgroundImage =
-`url(${selectedGroup.image})`;
-
-document.getElementById("groupName").innerText =
-selectedGroup.name;
+document.getElementById("groupImage").style.backgroundImage = `url(${selectedGroup.image})`;
+document.getElementById("groupName").innerText = selectedGroup.name;
 
 /* SHARE SYSTEM */
-
 let shareCount=0;
 let blocked=false;
 
 function shareLink(){
+  if(blocked){
+    alert("Espera unos segundos y vuelve a compartir.");
+    return;
+  }
+  blocked=true;
+  setTimeout(()=>{ blocked=false; },3000);
 
-if(blocked){
-alert("Espera unos segundos y vuelve a compartir.");
-return;
-}
+  let url=`https://t.me/share/url?text=${encodeURIComponent(selectedGroup.shareText)}`;
+  window.open(url,"_blank");
 
-blocked=true;
+  shareCount++;
+  updateProgress();
 
-setTimeout(()=>{
-blocked=false;
-},3000);
-
-let url=`https://t.me/share/url?text=${encodeURIComponent(selectedGroup.shareText)}`;
-
-window.open(url,"_blank");
-
-shareCount++;
-
-updateProgress();
-
-if(shareCount>3){
-setTimeout(()=>location.reload(),1000);
-}
-
+  if(shareCount>=3){
+    let nextIndex = (parseInt(sessionStorage.getItem("groupIndex")) + 1) % keys.length;
+    sessionStorage.setItem("groupIndex", nextIndex);
+    setTimeout(()=>location.reload(),1000);
+  }
 }
 
 function updateProgress(){
-
-let width=(Math.min(shareCount,3)/3)*100;
-
-document.getElementById("progress").style.width=width+"%";
-
-document.getElementById("shareCounter").innerText =
-Math.min(shareCount,3)+"/3";
-
+  let width=(Math.min(shareCount,3)/3)*100;
+  document.getElementById("progress").style.width=width+"%";
+  document.getElementById("shareCounter").innerText = Math.min(shareCount,3)+"/3";
 }
 
 function redirect(link){
-window.open(link,"_blank");
+  window.open(link,"_blank");
 }
-
 </script>
 
 </body>
