@@ -82,9 +82,6 @@ button{
   font-weight:bold;
   color:white;
   cursor:pointer;
-  box-shadow:none;
-  outline:none;
-  appearance:none;
 }
 
 .btn-share{
@@ -158,53 +155,53 @@ Access
 </div>
 
 <script>
-// Grupos
+
+// GRUPOS
 const groups={
   onlyfans:{
     name:"ONLYFANS 🏆",
     image:"https://i.ibb.co/5X0PQH3q/4-1.jpg",
-    shareText:`🔞𝐎𝐧𝐥𝐲𝐟𝐚𝐧𝐬 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐨𝐬, 𝐮́𝐧𝐞𝐭𝐞 𝐲 𝐝𝐢𝐬𝐟𝐫𝐮𝐭𝐚 👀👇
+    shareText:`🔞𝐎𝐧𝐥𝐲𝐟𝐚𝐧𝐬 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐨𝐬 👀👇
 PACKS #1
-https://goo.su/V2TRr
-
-PACKS #2
-https://shorturl.at/ILk3s`
+https://goo.su/V2TRr`
   },
+
   deepweb:{
     name:"DEEP WEB 🔞",
     image:"https://i.ibb.co/NdP0DQJT/6.jpg",
     shareText:"👀🔥Solo entran los primeros 100 👉 https://shorturl.at/4nIDZ"
   },
+
   sugardaddy:{
     name:"SUGAR DADDY 👅🍭",
     image:"https://i.ibb.co/rK41hHPt/1-1.jpg",
     shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
   },
+
   schoolgirl:{
     name:"SCHOOL GIRL 🤸‍♀️💕",
     image:"https://i.ibb.co/4RcKP59G/3.jpg",
     shareText:"👀🍑𝙋𝙖𝙘𝙠𝙨 𝙁𝙞𝙡𝙩𝙧𝙖𝙙𝙤𝙨🔞🔥 https://7a6lt.fotox.app/tg?start=5353490913"
   },
+
   naughtygirl:{
     name:"N@ughty Girl 👯‍♀️🔞",
     image:"https://i.ibb.co/q30ZwJv2/7-1.jpg",
     shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
   },
+
   campiracy:{
     name:"CAM PIRACY 🏴‍☠️🔞",
     image:"https://i.ibb.co/KpgTYdv0/2.jpg",
     shareText:"💕 Únete a los mejores Chats Prohibi2 😈👉 https://goo.su/iaa2JF"
   },
+
   transexuales:{
     name:"TRANS & GAY 🌈🔥",
     image:"https://i.ibb.co/nN47YhZp/IMG-20260311-202738-176.jpg",
-    shareText:`🌈🔥Únete a los mejores chats TRANS y GAY 👀👇
-PACKS #1
-https://goo.su/iaa2JF
+    shareText:"🌈🔥Únete a los mejores chats TRANS y GAY"
+  },
 
-PACKS #2
-https://shorturl.at/ILk3s`
-},
   valetodo:{
     name:"⛔️VALE TODO⛔️",
     image:"https://i.ibb.co/kg2fDXRL/IMG-20260311-124552-378.jpg",
@@ -212,67 +209,98 @@ https://shorturl.at/ILk3s`
   }
 };
 
-// ROTACIÓN DE GRUPOS
+// CLAVES
 const keys = Object.keys(groups);
 
-// Índice guardado en sessionStorage
-let groupIndex = parseInt(sessionStorage.getItem("groupIndex"));
-if(isNaN(groupIndex)) groupIndex = 0;
+// LEER startapp
+function getStartParam(){
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("startapp");
+}
 
-// Seleccionar grupo actual según índice
+let startGroup = getStartParam();
+
+let groupIndex;
+
+// SI VIENE DE TELEGRAM
+if(startGroup && groups[startGroup]){
+  groupIndex = keys.indexOf(startGroup);
+  sessionStorage.setItem("groupIndex",groupIndex);
+}else{
+  groupIndex = parseInt(sessionStorage.getItem("groupIndex"));
+  if(isNaN(groupIndex)) groupIndex = 0;
+}
+
+// GRUPO SELECCIONADO
 let selectedGroup = groups[keys[groupIndex]];
 
-// Mostrar datos en pantalla
-document.getElementById("groupImage").style.backgroundImage = `url(${selectedGroup.image})`;
-document.getElementById("groupName").innerText = selectedGroup.name;
+// MOSTRAR
+document.getElementById("groupImage").style.backgroundImage=`url(${selectedGroup.image})`;
+document.getElementById("groupName").innerText=selectedGroup.name;
 
-// SHARE SYSTEM
-let shareCount = parseInt(sessionStorage.getItem("shareCount")) || 0;
-let totalClicks = parseInt(sessionStorage.getItem("totalClicks")) || 0;
+
+// SHARE
+let shareCount=parseInt(sessionStorage.getItem("shareCount"))||0;
+let totalClicks=parseInt(sessionStorage.getItem("totalClicks"))||0;
+
 updateProgress();
 
-let blocked = false;
+let blocked=false;
 
 function shareLink(){
-    if(blocked){
-        alert("Espera unos segundos y vuelve a compartir.");
-        return;
-    }
-    blocked = true;
-    setTimeout(()=>{ blocked=false; }, 3000);
 
-    let url = `https://t.me/share/url?text=${encodeURIComponent(selectedGroup.shareText)}`;
-    window.open(url, "_blank");
+if(blocked){
+alert("Espera unos segundos.");
+return;
+}
 
-    shareCount = (shareCount + 1) % 4; // barra de 0-3
-    totalClicks++;
-    
-    sessionStorage.setItem("shareCount", shareCount);
-    sessionStorage.setItem("totalClicks", totalClicks);
-    
-    updateProgress();
+blocked=true;
+setTimeout(()=>blocked=false,3000);
 
-    // Cambia de grupo tras 4 clicks (puedes poner 5 si quieres)
-    if(totalClicks >= 4){
-        totalClicks = 0;
-        sessionStorage.setItem("totalClicks", totalClicks);
+let url=`https://t.me/share/url?text=${encodeURIComponent(selectedGroup.shareText)}`;
 
-        groupIndex = (groupIndex + 1) % keys.length;
-        sessionStorage.setItem("groupIndex", groupIndex);
+window.open(url,"_blank");
 
-        setTimeout(()=> location.reload(), 500);
-    }
+shareCount=(shareCount+1)%4;
+totalClicks++;
+
+sessionStorage.setItem("shareCount",shareCount);
+sessionStorage.setItem("totalClicks",totalClicks);
+
+updateProgress();
+
+if(totalClicks>=4){
+
+totalClicks=0;
+
+sessionStorage.setItem("totalClicks",0);
+
+groupIndex=(groupIndex+1)%keys.length;
+
+sessionStorage.setItem("groupIndex",groupIndex);
+
+setTimeout(()=>location.reload(),500);
+
+}
+
 }
 
 function updateProgress(){
-    let width = (Math.min(shareCount,3)/3)*100;
-    document.getElementById("progress").style.width = width + "%";
-    document.getElementById("shareCounter").innerText = Math.min(shareCount,3) + "/3";
+
+let width=(Math.min(shareCount,3)/3)*100;
+
+document.getElementById("progress").style.width=width+"%";
+
+document.getElementById("shareCounter").innerText=Math.min(shareCount,3)+"/3";
+
 }
 
 function redirect(link){
-    window.open(link,"_blank");
+
+window.open(link,"_blank");
+
 }
+
 </script>
 
 </body>
