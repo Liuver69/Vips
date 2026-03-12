@@ -94,6 +94,12 @@ background:#2c6fa3;
 position:relative;
 }
 
+.btn-icon{
+width:16px;
+vertical-align:middle;
+margin-right:6px;
+}
+
 .counter{
 position:absolute;
 right:10px;
@@ -134,17 +140,20 @@ Share 3 times to unlock and click /start to receive a gift
 </div>
 
 <button class="btn-share" onclick="shareLink()">
+<img class="btn-icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
 Share
 <span id="shareCounter" class="counter">0/3</span>
 </button>
 
 <button class="btn-alert"
 onclick="redirect('https://downyattainprojects.com/k6dgrqyc5g?key=a8ff3a3445842a223c56722310a7ef82')">
+<img class="btn-icon" src="https://i.ibb.co/q3JgGYYh/alert.png">
 Mega Gift
 </button>
 
 <button class="btn-alert"
 onclick="redirect('https://7a6lt.fotox.app/tg?start=5353490913')">
+<img class="btn-icon" src="https://i.ibb.co/gb6ZChYn/popup.png">
 Access
 </button>
 
@@ -181,7 +190,7 @@ shareText:"🔞 Packs filtrados"
 },
 
 naughtygirl:{
-name:"N@ughty Girl 👯‍♀️🔞",
+name:"N@UGHTY GIRL 👯‍♀️🔞",
 image:"https://i.ibb.co/q30ZwJv2/7-1.jpg",
 shareText:"🔥 Contenido exclusivo"
 },
@@ -238,7 +247,7 @@ sessionStorage.setItem("groupIndex",groupIndex);
 
 }
 
-// mostrar grupo
+// cargar grupo
 function loadGroup(){
 
 let selectedGroup=groups[keys[groupIndex]];
@@ -272,7 +281,6 @@ return;
 blocked=true;
 
 setTimeout(()=>blocked=false,3000);
-
 
 let selectedGroup=groups[keys[groupIndex]];
 
