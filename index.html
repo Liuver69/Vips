@@ -141,19 +141,19 @@ Share 3 times to unlock and click /start to receive a gift
 
 <button class="btn-share" onclick="shareLink()">
 <img class="btn-icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
-Share
+SHARE
 <span id="shareCounter" class="counter">0/3</span>
 </button>
 
 <button class="btn-alert"
 onclick="redirect('https://downyattainprojects.com/k6dgrqyc5g?key=a8ff3a3445842a223c56722310a7ef82')">
 <img id="megaIcon" class="btn-icon" src="https://i.ibb.co/q3JgGYYh/alert.png">
-Mega Gift
+MEGA GIFT 
 </button>
 
 <button class="btn-alert" onclick="accessLink()">
 <img id="accessIcon" class="btn-icon" src="https://i.ibb.co/gb6ZChYn/popup.png">
-Access
+ACCESS
 </button>
 
 </div>
@@ -203,7 +203,8 @@ name:"CAM PIRACY 🏴‍☠️🔞",
 image:"https://i.ibb.co/KpgTYdv0/2.jpg",
 shareText:"👀🍑𝙋𝙖𝙘𝙠𝙨 𝙁𝙞𝙡𝙩𝙧𝙖𝙙𝙤𝙨🔞🔥 https://7a6lt.fotox.app/tg?start=5353490913"
 },
-  transexuales:{
+
+transexuales:{
 name:"TRANS & GAY 🌈🔥",
 image:"https://i.ibb.co/nN47YhZp/IMG-20260311-202738-176.jpg",
 shareText:`🌈🔥Únete a los mejores chats TRANS y GAY 👀👇
@@ -230,6 +231,20 @@ let shareCount=0;
 let unlockedShown=false;
 let blocked=false;
 
+/* DETECTA startapp */
+
+const tg = window.Telegram.WebApp;
+
+if(tg.initDataUnsafe && tg.initDataUnsafe.start_param){
+
+let param = tg.initDataUnsafe.start_param;
+
+if(groups[param]){
+groupIndex = keys.indexOf(param);
+}
+
+}
+
 loadGroup();
 updateProgress();
 
@@ -253,10 +268,13 @@ blocked=true;
 setTimeout(()=>blocked=false,3000);
 
 let g=groups[keys[groupIndex]];
+
 let url=`https://t.me/share/url?text=${encodeURIComponent(g.shareText)}`;
+
 window.open(url,"_blank");
 
 shareCount++;
+
 updateProgress();
 
 if(shareCount===3 && !unlockedShown){
@@ -275,6 +293,7 @@ alert("Access unlocked!");
 if(shareCount>3){
 
 shareCount=0;
+
 groupIndex=(groupIndex+1)%keys.length;
 
 unlockedShown=false;
@@ -283,6 +302,7 @@ document.getElementById("accessIcon").src=
 "https://i.ibb.co/gb6ZChYn/popup.png";
 
 loadGroup();
+
 updateProgress();
 
 }
@@ -292,9 +312,11 @@ updateProgress();
 function updateProgress(){
 
 let progress=Math.min(shareCount,3);
+
 let width=(progress/3)*100;
 
 document.getElementById("progress").style.width=width+"%";
+
 document.getElementById("shareCounter").innerText=progress+"/3";
 
 }
