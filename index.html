@@ -151,8 +151,7 @@ onclick="redirect('https://downyattainprojects.com/k6dgrqyc5g?key=a8ff3a3445842a
 Mega Gift
 </button>
 
-<button class="btn-alert"
-onclick="redirect('https://7a6lt.fotox.app/tg?start=5353490913')">
+<button class="btn-alert" onclick="accessLink()">
 <img class="btn-icon" src="https://i.ibb.co/gb6ZChYn/popup.png">
 Access
 </button>
@@ -168,12 +167,9 @@ const groups={
 onlyfans:{
 name:"ONLYFANS 🏆",
 image:"https://i.ibb.co/5X0PQH3q/4-1.jpg",
-shareText:`🔞𝐎𝐧𝐥𝐲𝐟𝐚𝐧𝐬 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐨𝐬, 𝐮́𝐧𝐞𝐭𝐞 𝐲 𝐝𝐢𝐬𝐟𝐫𝐮𝐭𝐚 👀👇 
-PACKS #1
- https://kut.lat/ax9b 
-
-PACKS #2
- https://kut.lat/erEd`
+shareText:`🔞𝐎𝐧𝐥𝐲𝐟𝐚𝐧𝐬 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐨𝐬 👀👇
+PACKS #1 https://kut.lat/ax9b
+PACKS #2 https://kut.lat/erEd`
 },
 
 deepweb:{
@@ -205,16 +201,13 @@ name:"CAM PIRACY 🏴‍☠️🔞",
 image:"https://i.ibb.co/KpgTYdv0/2.jpg",
 shareText:"👀🍑𝙋𝙖𝙘𝙠𝙨 𝙁𝙞𝙡𝙩𝙧𝙖𝙙𝙤𝙨🔞🔥 https://7a6lt.fotox.app/tg?start=5353490913"
 },
-  transexuales:{
+
+transexuales:{
 name:"TRANS & GAY 🌈🔥",
 image:"https://i.ibb.co/nN47YhZp/IMG-20260311-202738-176.jpg",
 shareText:`🌈🔥Únete a los mejores chats TRANS y GAY 👀👇
-
-PACKS #1
-https://kut.lat/ax9b
-
-PACKS #2
-https://kut.lat/erEd`
+PACKS #1 https://kut.lat/ax9b
+PACKS #2 https://kut.lat/erEd`
 },
 
 valetodo:{
@@ -257,6 +250,7 @@ sessionStorage.setItem("groupIndex",groupIndex);
 
 }
 
+
 // cargar grupo
 function loadGroup(){
 
@@ -278,11 +272,12 @@ let blocked=false;
 
 updateProgress();
 
+
 function shareLink(){
 
 if(blocked){
 
-alert("Espera unos segundos y vuelve a compartir.");
+alert("Wait a few seconds before sharing again.");
 
 return;
 
@@ -304,24 +299,14 @@ sessionStorage.setItem("shareCount",shareCount);
 
 updateProgress();
 
-if(shareCount>=4){
+if(shareCount>=3){
 
-shareCount=0;
-
-sessionStorage.setItem("shareCount",0);
-
-groupIndex=(groupIndex+1)%keys.length;
-
-sessionStorage.setItem("groupIndex",groupIndex);
-
-loadGroup();
-
-// reset visual inmediato
-updateProgress();
+alert("Access unlocked!");
 
 }
 
 }
+
 
 function updateProgress(){
 
@@ -335,6 +320,34 @@ document.getElementById("shareCounter").innerText=progress+"/3";
 
 }
 
+
+function accessLink(){
+
+if(shareCount<3){
+
+alert("Share 3 times to unlock access.");
+
+return;
+
+}
+
+window.open("https://7a6lt.fotox.app/tg?start=5353490913","_blank");
+
+shareCount=0;
+
+sessionStorage.setItem("shareCount",0);
+
+groupIndex=(groupIndex+1)%keys.length;
+
+sessionStorage.setItem("groupIndex",groupIndex);
+
+loadGroup();
+
+updateProgress();
+
+}
+
+
 function redirect(link){
 
 window.open(link,"_blank");
@@ -345,4 +358,3 @@ window.open(link,"_blank");
 
 </body>
 </html>
-
