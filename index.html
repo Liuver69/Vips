@@ -268,6 +268,8 @@ loadGroup();
 // sistema share
 let shareCount=parseInt(sessionStorage.getItem("shareCount"))||0;
 
+let unlockedShown=false;
+
 let blocked=false;
 
 updateProgress();
@@ -299,9 +301,37 @@ sessionStorage.setItem("shareCount",shareCount);
 
 updateProgress();
 
-if(shareCount>=3){
+
+// alerta automática
+if(shareCount===3 && !unlockedShown){
+
+unlockedShown=true;
+
+setTimeout(()=>{
 
 alert("Access unlocked!");
+
+},2400);
+
+}
+
+
+// cambio de grupo si siguen compartiendo
+if(shareCount>3){
+
+shareCount=0;
+
+sessionStorage.setItem("shareCount",0);
+
+groupIndex=(groupIndex+1)%keys.length;
+
+sessionStorage.setItem("groupIndex",groupIndex);
+
+unlockedShown=false;
+
+loadGroup();
+
+updateProgress();
 
 }
 
@@ -332,18 +362,6 @@ return;
 }
 
 window.open("https://7a6lt.fotox.app/tg?start=5353490913","_blank");
-
-shareCount=0;
-
-sessionStorage.setItem("shareCount",0);
-
-groupIndex=(groupIndex+1)%keys.length;
-
-sessionStorage.setItem("groupIndex",groupIndex);
-
-loadGroup();
-
-updateProgress();
 
 }
 
