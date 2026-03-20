@@ -26,6 +26,7 @@ align-items:center;
 color:#fff;
 }
 
+/* CONTAINER */
 .container{
 width:270px;
 min-height:420px;
@@ -115,6 +116,7 @@ background:#286e9f;
 background:#286e9f;
 }
 
+/* ICONS */
 .btn-icon{
 width:16px;
 height:16px;
@@ -122,6 +124,7 @@ vertical-align:middle;
 margin-right:6px;
 }
 
+/* SHARE COUNTER */
 .counter{
 position:absolute;
 top:8px;
@@ -168,7 +171,8 @@ SHARE
 
 </button>
 
-<button class="btn-alert" onclick="megaGift()">
+<button class="btn-alert"
+onclick="redirect('https://downyattainprojects.com/k6dgrqyc5g?key=a8ff3a3445842a223c56722310a7ef82')">
 
 <img id="megaIcon"
 class="btn-icon"
@@ -195,12 +199,6 @@ ACCESS
 
 const groups={
 
-viplocked:{
-name:"BEST FRIENDS 🫦🌻",
-image:"https://i.ibb.co/kg2DM6y5/images-24.jpg",
-shareText:`VIP`
-},
-
 onlyfans:{
 name:"ONLYFANS 🏆",
 image:"https://i.ibb.co/5X0PQH3q/4-1.jpg",
@@ -210,7 +208,9 @@ link3:"https://7a6lt.fotox.app/tg?start=5353490913",
 shareText:`🔞ᴊᴏɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ ᴏɴʟʏғᴀɴs ʟᴇᴀᴋs🔥
 
 ✓https://kut.lat/ej2R
+
 ✓https://kut.lat/ax9b
+
 ✓https://kut.lat/erEd`
 },
 
@@ -223,7 +223,9 @@ link3:"https://7a6lt.fotox.app/tg?start=5353490913",
 shareText:`🔞ᴊᴏɪɴ ᴛʜᴇ ᴡᴇʙ ғɪʟᴛᴇʀᴇᴅ ɢʀᴏᴜᴘ🌐
 
 ✓https://kut.lat/bk55
+
 ✓https://kut.lat/ax9b
+
 ✓https://kut.lat/erEd`
 },
 
@@ -236,7 +238,9 @@ link3:"https://7a6lt.fotox.app/tg?start=5353490913",
 shareText:`🔞ᴊᴏɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ ᴍᴏᴍ 💕 sᴏɴ 👀
 
 ✓https://kut.lat/elO5
+
 ✓https://kut.lat/ax9b
+
 ✓https://kut.lat/erEd`
 },
 
@@ -249,7 +253,9 @@ link3:"https://7a6lt.fotox.app/tg?start=5353490913",
 shareText:`🔞ᴊᴏɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ sᴄʜᴏᴏʟ ɢɪʀʟ 🤸‍♀️💕
 
 ✓https://kut.lat/bmwO
+
 ✓https://kut.lat/ax9b
+
 ✓https://kut.lat/erEd`
 },
 
@@ -262,7 +268,9 @@ link3:"https://7a6lt.fotox.app/tg?start=5353490913",
 shareText:`🔞ᴊᴏɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ ʀ😈ᴘ³ ᴠɪᴅᴇᴏs
 
 ✓https://kut.lat/enZR
+
 ✓https://kut.lat/ax9b
+
 ✓https://kut.lat/erEd`
 },
 
@@ -275,7 +283,9 @@ link3:"https://7a6lt.fotox.app/tg?start=5353490913",
 shareText:`🔞ᴊᴏɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ ᴄᴀᴍ ᴘɪʀᴀᴄʏ 🏴‍☠️🔞
 
 ✓https://kut.lat/boYj
+
 ✓https://kut.lat/ax9b
+
 ✓https://kut.lat/erEd`
 },
 
@@ -288,7 +298,9 @@ link3:"https://7a6lt.fotox.app/tg?start=5353490913",
 shareText:`🔞ᴊᴏɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ ᴛʀᴀɴs & ɢᴀʏ🏳️‍🌈
 
 ✓https://kut.lat/epg2
+
 ✓https://kut.lat/ax9b
+
 ✓https://kut.lat/erEd`
 },
 
@@ -301,7 +313,9 @@ link3:"https://7a6lt.fotox.app/tg?start=5353490913",
 shareText:`🔞ᴊᴏɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ ᴛᴇᴇɴ ᴘᴀʀᴛʏ 👅💦
 
 ✓https://kut.lat/bqj2
+
 ✓https://kut.lat/ax9b
+
 ✓https://kut.lat/erEd`
 }
 
@@ -311,7 +325,31 @@ const keys=Object.keys(groups);
 
 let groupIndex=0;
 let shareCount=0;
+let unlockedShown=false;
+let blocked=false;
+let accessClicks={};
 let pendingShare=false;
+
+/* DETECTAR startapp DE TELEGRAM */
+
+let startParam=null;
+
+if(window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe){
+startParam=Telegram.WebApp.initDataUnsafe.start_param;
+}
+
+if(startParam && groups[startParam]){
+groupIndex=keys.indexOf(startParam);
+}
+
+/* TAMBIÉN FUNCIONA DESDE NAVEGADOR */
+
+let urlParams=new URLSearchParams(window.location.search);
+let webParam=urlParams.get("startapp");
+
+if(webParam && groups[webParam]){
+groupIndex=keys.indexOf(webParam);
+}
 
 loadGroup();
 updateProgress();
@@ -326,6 +364,14 @@ document.getElementById("groupName").innerText=g.name;
 }
 
 function shareLink(){
+
+if(blocked){
+alert("Wait a few seconds before sharing again.");
+return;
+}
+
+blocked=true;
+setTimeout(()=>blocked=false,3000);
 
 let g=groups[keys[groupIndex]];
 
@@ -347,14 +393,32 @@ shareCount++;
 
 updateProgress();
 
-if(keys[groupIndex]=="viplocked") return;
+if(shareCount===3 && !unlockedShown){
+
+unlockedShown=true;
+
+document.getElementById("accessIcon").src=
+document.getElementById("megaIcon").src;
+
+setTimeout(()=>{
+alert("Access unlocked!");
+},3500);
+
+}
 
 if(shareCount>3){
 
 shareCount=0;
+
 groupIndex=(groupIndex+1)%keys.length;
 
+unlockedShown=false;
+
+document.getElementById("accessIcon").src=
+"https://i.ibb.co/gb6ZChYn/popup.png";
+
 loadGroup();
+
 updateProgress();
 
 }
@@ -367,51 +431,48 @@ function updateProgress(){
 
 let progress=Math.min(shareCount,3);
 
-document.getElementById("progress").style.width=(progress/3)*100+"%";
+let width=(progress/3)*100;
+
+document.getElementById("progress").style.width=width+"%";
 
 document.getElementById("shareCounter").innerText=progress+"/3";
 
 }
 
-function megaGift(){
-
-if(keys[groupIndex]=="viplocked"){
-
-if(shareCount<3){
-alert("Share 3 time for unlock");
-}else{
-alert("Este chat está disponible para miembros verificados");
-}
-
-return;
-}
-
-window.open("https://downyattainprojects.com/k6dgrqyc5g?key=a8ff3a3445842a223c56722310a7ef82","_blank");
-
-}
-
 function accessLink(){
-
-if(keys[groupIndex]=="viplocked"){
-
-if(shareCount<3){
-alert("Share 3 time for unlock");
-}else{
-alert("Este chat está disponible para miembros verificados");
-}
-
-return;
-}
 
 if(shareCount<3){
 alert("Share 3 times to unlock access.");
 return;
 }
 
-let g = groups[keys[groupIndex]];
+let key = keys[groupIndex];
+let g = groups[key];
+
+if(!accessClicks[key]){
+accessClicks[key]=0;
+}
+
+accessClicks[key]++;
+
+if(accessClicks[key]==1){
+
+window.open(g.link1,"_blank");
+
+}else if(accessClicks[key]==2){
 
 window.open(g.link2,"_blank");
 
+}else{
+
+window.open(g.link3,"_blank");
+
+}
+
+}
+
+function redirect(link){
+window.open(link,"_blank");
 }
 
 </script>
