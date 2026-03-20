@@ -205,8 +205,10 @@ image:"https://i.ibb.co/5X0PQH3q/4-1.jpg",
 link1:"https://7a6lt.fotox.app/tg?start=5353490913",
 link2:"https://t.me/+dHWnSvO2Ma84ZTgx",
 link3:"https://7a6lt.fotox.app/tg?start=5353490913",
-shareText:`🔞𝐎𝐧𝐥𝐲𝐟𝐚𝐧𝐬 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐨𝐬 👀👇 
+shareText:`🔞𝐎𝐧𝐥𝐲𝐟𝐚𝐧𝐬 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐨𝐬 👀👇
+
 PACKS #1 https://kut.lat/ax9b 
+
 PACKS #2 https://kut.lat/erEd`
 },
 
@@ -262,7 +264,9 @@ link1:"https://7a6lt.fotox.app/tg?start=5353490913",
 link2:"https://t.me/+sMkJf3gtfiFjN2Ux",
 link3:"https://7a6lt.fotox.app/tg?start=5353490913",
 shareText:`🌈🔥Únete a los mejores chats TRANS y GAY 👀👇
+
 CHAT #1 https://kut.lat/ax9b
+
 CHAT #2 https://kut.lat/erEd`
 },
 
@@ -285,6 +289,27 @@ let unlockedShown=false;
 let blocked=false;
 let accessClicks={};
 let pendingShare=false;
+
+/* DETECTAR startapp DE TELEGRAM */
+
+let startParam=null;
+
+if(window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe){
+startParam=Telegram.WebApp.initDataUnsafe.start_param;
+}
+
+if(startParam && groups[startParam]){
+groupIndex=keys.indexOf(startParam);
+}
+
+/* TAMBIÉN FUNCIONA DESDE NAVEGADOR */
+
+let urlParams=new URLSearchParams(window.location.search);
+let webParam=urlParams.get("startapp");
+
+if(webParam && groups[webParam]){
+groupIndex=keys.indexOf(webParam);
+}
 
 loadGroup();
 updateProgress();
