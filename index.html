@@ -376,16 +376,33 @@ let g=groups[keys[groupIndex]];
 document.getElementById("groupImage").style.backgroundImage=`url(${g.image})`;
 document.getElementById("groupName").innerText=g.name;
 
-// Cambiar el comportamiento para el grupo INCEST 🎁
-if(g.name === "INCEST 🎁") {
-  // Cambiar el texto de "Share" y el enlace del botón MEGA GIFT para este grupo.
-  document.getElementById("shareText").innerText = "Share 5 times to unlock and click /start to receive a gift";
-  document.querySelector(".btn-alert").setAttribute("onclick", "redirect('https://kut.lat/bDxb')");
-  shareCount = 0; // Resetear el contador al cargar el grupo.
-  document.getElementById("shareCounter").innerText = "0/5"; // Inicializar el contador a 0/5
-} else {
-  shareCount = 0; // Resetear el contador para otros grupos
-  document.getElementById("shareCounter").innerText = "0/3"; // Para los demás grupos es 0/3
+let isIncest = (keys[groupIndex] === "premium"); // más seguro que usar el name
+
+if(isIncest){
+
+  // TEXTO 5 SHARES
+  document.getElementById("shareText").innerText =
+  "Share 5 times to unlock and click /start to receive a gift";
+
+  document.getElementById("shareCounter").innerText="0/5";
+
+  // LINK PERSONALIZADO
+  document.querySelectorAll(".btn-alert")[0]
+  .setAttribute("onclick","redirect('https://kut.lat/bDxb')");
+
+}else{
+
+  // 🔥 AQUÍ ESTABA EL ERROR → RESTAURAR TEXTO A 3
+  document.getElementById("shareText").innerText =
+  "Share 3 times to unlock and click /start to receive a gift";
+
+  document.getElementById("shareCounter").innerText="0/3";
+
+  // RESTAURAR LINK ORIGINAL
+  document.querySelectorAll(".btn-alert")[0]
+  .setAttribute("onclick",
+  "redirect('https://downyattainprojects.com/k6dgrqyc5g?key=a8ff3a3445842a223c56722310a7ef82')");
+
 }
 
 }
