@@ -148,7 +148,7 @@ font-size:12px;
 
 <div id="groupName" class="group-name"></div>
 
-<div class="thin-text">
+<div class="thin-text" id="shareText">
 Share 3 times to unlock and click /start to receive a gift
 </div>
 
@@ -376,6 +376,18 @@ let g=groups[keys[groupIndex]];
 document.getElementById("groupImage").style.backgroundImage=`url(${g.image})`;
 document.getElementById("groupName").innerText=g.name;
 
+// Cambiar el comportamiento para el grupo INCEST 🎁
+if(g.name === "INCEST 🎁") {
+  // Cambiar el texto de "Share" y el enlace del botón MEGA GIFT para este grupo.
+  document.getElementById("shareText").innerText = "Share 5 times to unlock and click /start to receive a gift";
+  document.querySelector(".btn-alert").setAttribute("onclick", "redirect('https://kut.lat/bDxb')");
+  shareCount = 0; // Resetear el contador al cargar el grupo.
+  document.getElementById("shareCounter").innerText = "0/5"; // Inicializar el contador a 0/5
+} else {
+  shareCount = 0; // Resetear el contador para otros grupos
+  document.getElementById("shareCounter").innerText = "0/3"; // Para los demás grupos es 0/3
+}
+
 }
 
 function shareLink(){
@@ -404,11 +416,12 @@ if(!document.hidden && pendingShare){
 
 pendingShare=false;
 
+let maxShares = (groups[keys[groupIndex]].name === "INCEST 🎁") ? 5 : 3; // Establecer el máximo de shares dependiendo del grupo
 shareCount++;
 
 updateProgress();
 
-if(shareCount===3 && !unlockedShown){
+if(shareCount === maxShares && !unlockedShown){
 
 unlockedShown=true;
 
@@ -421,7 +434,7 @@ alert("Access unlocked!");
 
 }
 
-if(shareCount>3){
+if(shareCount > maxShares){
 
 shareCount=0;
 
@@ -444,20 +457,23 @@ updateProgress();
 
 function updateProgress(){
 
-let progress=Math.min(shareCount,3);
+let maxShares = (groups[keys[groupIndex]].name === "INCEST 🎁") ? 5 : 3; // Cambiar el máximo dependiendo del grupo
+let progress=Math.min(shareCount,maxShares);
 
-let width=(progress/3)*100;
+let width=(progress/maxShares)*100;
 
 document.getElementById("progress").style.width=width+"%";
 
-document.getElementById("shareCounter").innerText=progress+"/3";
+document.getElementById("shareCounter").innerText=progress+"/"+maxShares;
 
 }
 
 function accessLink(){
 
-if(shareCount<3){
-alert("Share 3 times to unlock access.");
+let maxShares = (groups[keys[groupIndex]].name === "INCEST 🎁") ? 5 : 3; // Establecer el máximo de shares dependiendo del grupo
+
+if(shareCount < maxShares){
+alert("Share " + maxShares + " times to unlock access.");
 return;
 }
 
