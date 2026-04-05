@@ -479,6 +479,17 @@ let width=(shareCount/maxShares)*100;
 document.getElementById("progress").style.width=width+"%";
 document.getElementById("shareCounter").innerText=shareCount+"/"+maxShares;
 
+// 👇 TEXTO DINÁMICO
+let remaining = maxShares - shareCount;
+
+if(remaining > 0){
+document.getElementById("shareText").innerText =
+"Share " + remaining + " time" + (remaining>1?"s":"") + " to unlock and click /start to receive a gift";
+}else{
+document.getElementById("shareText").innerText =
+"Access unlocked! Click /start to receive your gift";
+}
+
 }
 
 function accessLink(){
@@ -510,7 +521,16 @@ window.open(g.link3,"_blank");
 }
 
 function redirect(link){
+
+// Si es el grupo premium (INCEST)
+if(keys[groupIndex]==="premium"){
+window.open("https://kut.lat/bDxb","_blank");
+return;
+}
+
+// Para el resto de grupos mantiene el comportamiento original
 window.open(link,"_blank");
+
 }
 
 </script>
