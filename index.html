@@ -443,8 +443,17 @@ unlockedShown=false;
 document.getElementById("accessIcon").src=
 "https://i.ibb.co/gb6ZChYn/popup.png";
 
+// 👇 DESACTIVAR ANIMACIÓN TEMPORALMENTE
+let progressBar = document.getElementById("progress");
+progressBar.style.transition = "none";
+
 loadGroup();
 updateProgress();
+
+// 👇 REACTIVAR ANIMACIÓN
+setTimeout(()=>{
+progressBar.style.transition = "width 2s ease";
+},50);
 
 }
 
